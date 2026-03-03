@@ -1,0 +1,57 @@
+name: 🔍 Validación de Código
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  validate:
+    name: Validar HTML, CSS y JS
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout del código
+      uses: actions/checkout@v3
+      
+    - name: 🔍 Validar HTML
+      uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+      with:
+        root: mockup/
+        
+    - name: ✅ Resultado
+      run: echo "✅ Validación completada"
+
+  lint-css:
+    name: Lint CSS
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout del código
+      uses: actions/checkout@v3
+      
+    - name: 🎨 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: 📦 Instalar Stylelint
+      run: npm install -g stylelint stylelint-config-standard
+      
+    - name: 🔍 Lint CSS files
+      run: stylelint "mockup/css/*.css" --allow-empty-input || echo "⚠️  Hay warnings de CSS (no bloqueante)"
+      
+  check-links:
+    name: Verificar Links Rotos
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout del código
+      uses: actions/checkout@v3
+      
+    - name: 🔗 Verificar links en Markdown
+      uses: gaurav-nelson/github-action-markdown-link-check@v1
+      with:
+        use-quiet-mode: 'yes'
+        use-verbose-mode: 'no'

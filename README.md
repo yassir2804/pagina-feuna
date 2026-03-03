@@ -1,8 +1,15 @@
 # 🎓 FEUNA - Rediseño Sitio Web
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
 **Proyecto:** Renovación del sitio web de la Federación de Estudiantes de la Universidad Nacional (FEUNA)  
 **Estado:** Arquitectura validada → Diseño en progreso  
-**Fecha:** Febrero 2026
+**Fecha:** Febrero 2026  
+**Repositorio:** https://github.com/yassir2804/pagina-feuna
 
 ---
 
@@ -212,6 +219,90 @@ Mientras trabajamos, podés ver los cambios en tiempo real:
 - 📄 index.html - ⏳ En progreso (rediseño con 4 mega-menús)
 - 📄 feuna.html - ✅ Existente (referencia)
 - 📄 deuna.html - ✅ Existente (referencia)
+
+---
+
+## 🚀 Inicio Rápido
+
+### Prerrequisitos
+- Navegador web moderno (Chrome, Firefox, Safari, Edge)
+- Editor de código (VS Code recomendado)
+- Git instalado
+
+### Instalación
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/yassir2804/pagina-feuna.git
+
+# Entrar al directorio
+cd pagina-feuna
+
+# Abrir con tu editor favorito
+code .
+```
+
+### Visualizar el Mockup
+
+**Opción 1: Servidor local con Python**
+```bash
+# Si tienes Python 3
+cd mockup
+python -m http.server 8000
+
+# Abrir en el navegador
+# http://localhost:8000
+```
+
+**Opción 2: Servidor local con Node.js**
+```bash
+# Instalar servidor HTTP simple
+npm install -g http-server
+
+# Ejecutar en el directorio mockup
+cd mockup
+http-server -p 8000
+```
+
+**Opción 3: Extensión VS Code**
+- Instala "Live Server" en VS Code
+- Click derecho en `index.html` → "Open with Live Server"
+
+---
+
+## 🤝 Contribuir
+
+¡Las contribuciones son bienvenidas! Este es un proyecto abierto para la comunidad estudiantil.
+
+1. **Fork** el proyecto
+2. Crea una **rama** para tu feature (`git checkout -b feature/AmazingFeature`)
+3. **Commit** tus cambios (`git commit -m 'Add: nueva funcionalidad'`)
+4. **Push** a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un **Pull Request**
+
+Lee [CONTRIBUTING.md](CONTRIBUTING.md) para más detalles sobre el proceso de contribución.
+
+---
+
+## 📝 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+## 👥 Contacto
+
+**Proyecto FEUNA** - Federación de Estudiantes Universidad Nacional  
+📧 Contacto: [Agregar email de contacto]  
+🌐 GitHub: [@yassir2804](https://github.com/yassir2804)
+
+---
+
+## 🙏 Agradecimientos
+
+- A los 12 estudiantes UNA que participaron en el card sorting (Febrero 2026)
+- A la comunidad estudiantil de la UNA por su retroalimentación
+- A todos los que contribuyen a mejorar la experiencia digital estudiantil
 
 ---
 

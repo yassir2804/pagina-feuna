@@ -1,0 +1,46 @@
+# EditorConfig para Proyecto FEUNA
+# https://editorconfig.org
+
+# Archivo de configuración principal
+root = true
+
+# Valores por defecto para todos los archivos
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# Archivos HTML
+[*.html]
+indent_size = 2
+
+# Archivos CSS
+[*.css]
+indent_size = 2
+
+# Archivos JavaScript
+[*.js]
+indent_size = 2
+
+# Archivos JSON
+[*.json]
+indent_size = 2
+
+# Archivos Markdown (no remover trailing whitespace)
+[*.md]
+trim_trailing_whitespace = false
+indent_size = 2
+
+# Archivos de configuración
+[*.{yml,yaml}]
+indent_size = 2
+
+[*.xml]
+indent_size = 2
+
+# Makefiles requieren tabs
+[Makefile]
+indent_style = tab
