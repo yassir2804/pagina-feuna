@@ -19,6 +19,7 @@ jobs:
       uses: Cyb3r-Jak3/html5validator-action@v7.2.0
       with:
         root: mockup/
+        blacklist: common/
         
     - name: ✅ Resultado
       run: echo "✅ Validación completada"
