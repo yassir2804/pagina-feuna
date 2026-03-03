@@ -1,0 +1,148 @@
+# ==========================================
+# GITIGNORE PARA PROYECTO FEUNA
+# Página Web FEUNA - Rediseño
+# ==========================================
+
+# ========== ARCHIVOS DEL SISTEMA OPERATIVO ==========
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ========== EDITORES E IDEs ==========
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains (WebStorm, PhpStorm, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ========== ARCHIVOS TEMPORALES ==========
+# Temporales generales
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+*.log
+
+# Archivos temporales específicos del proyecto
+temp_*
+tmp_*
+backup_*
+old_*
+
+# ========== NODE_MODULES (si se usa en futuro) ==========
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.npm
+.yarn
+
+# ========== CARPETAS DE BUILD Y DIST ==========
+dist/
+build/
+out/
+.cache/
+
+# ========== ARCHIVOS DE CONFIGURACIÓN LOCAL ==========
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Configuraciones locales
+config.local.js
+config.local.json
+
+# ========== BASES DE DATOS LOCALES ==========
+*.sqlite
+*.sqlite3
+*.db
+
+# ========== ARCHIVOS DE RESPALDO ==========
+*.backup
+*.old
+*.orig
+
+# ========== ARCHIVOS GRANDES O BINARIOS ==========
+# Videos
+*.mp4
+*.mov
+*.avi
+*.wmv
+*.flv
+
+# Archivos de Adobe
+*.psd
+*.ai
+*.indd
+
+# Archivos de Office (versiones de respaldo)
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# ========== IMÁGENES ORIGINALES NO OPTIMIZADAS ==========
+# Mantener solo las originales esenciales
+# mockup/images/originales/*.xcf
+# mockup/images/originales/*.psd
+
+# ========== SCRIPTS DE DESARROLLO LOCAL ==========
+# Scripts de testing local
+test-local.ps1
+server-local.ps1
+
+# ========== LOGS Y REPORTES ==========
+logs/
+*.log
+npm-debug.log*
+
+# ========== ARCHIVOS DE PROCESO COMPLETADO ==========
+# Card sorting (ya analizado, mantener solo resultados)
+# MENSAJE-DIFUSION-CARD-SORTING.md (eliminado)
+# CARD-SORTING-GOOGLE-FORMS.md (eliminado)
+# crear-formulario-card-sorting.gs (eliminado)
+
+# ========== NOTAS PERSONALES ==========
+NOTAS-PERSONALES.md
+TODO-PERSONAL.md
+notes/
+
+# ========== ARCHIVOS ESPECÍFICOS DE ONEDRIVE ==========
+# OneDrive temporal files
+*.tmp
+
+# ========== MANTENER ARCHIVOS IMPORTANTES ==========
+# Estos NO deben ignorarse:
+# !README.md
+# !BRIEF-PROYECTO-FEUNA.md
+# !ARQUITECTURA-SITIO-RENOVADO.md
+# !docs/**/*.md
+# !mockup/**/*.html
+# !mockup/**/*.css
+# !mockup/**/*.js
+
+# ========== COMENTARIOS ==========
+# Este .gitignore está optimizado para:
+# - Proyecto de rediseño web estático (HTML/CSS/JS)
+# - Sin backend por ahora (puede cambiar a WordPress/Joomla)
+# - Mantener solo archivos esenciales del proyecto
+# - Excluir archivos temporales, de proceso, y de respaldo

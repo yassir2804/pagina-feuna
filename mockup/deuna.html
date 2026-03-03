@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEUNA - Directorio Estudiantil | FEUNA</title>
+    
+    <!-- Google Fonts - Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-deuna">
+        <!-- Top Bar: Logo, Redes Sociales, Búsqueda -->
+        <div class="top-bar">
+            <div class="container-full">
+                <div class="top-bar-content">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/logo-feuna.png" alt="FEUNA - Federación de Estudiantes UNA" class="logo-img">
+                        </a>
+                    </div>
+                    
+                    <div class="header-right">
+                        <div class="header-search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Buscar...">
+                        </div>
+                        
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/feunaoficial" target="_blank" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="https://www.instagram.com/feuna_oficial" target="_blank" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Bar: 8 secciones principales con submenús - STICKY -->
+        <div class="nav-bar">
+            <div class="container-full">
+                <div class="header-content">
+                    <nav class="main-nav">
+                        <ul class="nav-list">
+                            <!-- INICIO -->
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link">Inicio</a>
+                            </li>
+                            
+                            <!-- FEUNA -->
+                            <li class="nav-item has-dropdown">
+                                <a href="feuna.html" class="nav-link">FEUNA</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="feuna.html">¿Qué es la FEUNA?</a></li>
+                                    <li><a href="#">Historia y Logros</a></li>
+                                    <li><a href="#">Estructura Organizativa</a></li>
+                                    <li><a href="#">Estatuto y Reglamentos</a></li>
+                                    <li><a href="#">Plan de Trabajo</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- REPRESENTACIÓN -->
+                            <li class="nav-item has-dropdown">
+                                <a href="#" class="nav-link active">Representación</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">¿Qué es la Representación?</a></li>
+                                    <li><a href="deuna.html">DEUNA (Directorio)</a></li>
+                                    <li><a href="#">CAEUNA (Consejo de Asociaciones)</a></li>
+                                    <li><a href="#">TEEUNA (Tribunal Electoral)</a></li>
+                                    <li><a href="#">Asociaciones Estudiantiles</a></li>
+                                    <li><a href="#">Representación en órganos UNA</a></li>
+                                    <li><a href="#">Transparencia y Rendición</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- NOTICIAS -->
+                            <li class="nav-item has-dropdown">
+                                <a href="#" class="nav-link">Noticias</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Todas las Noticias</a></li>
+                                    <li><a href="#">Eventos y Actividades</a></li>
+                                    <li><a href="#">Calendario FEUNA</a></li>
+                                    <li><a href="#">Boletines y Newsletter</a></li>
+                                    <li><a href="#">Streaming y Transmisiones</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- TRÁMITES -->
+                            <li class="nav-item has-dropdown">
+                                <a href="#" class="nav-link">Trámites</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Formularios Digitales</a></li>
+                                    <li><a href="#">E-Peticiones</a></li>
+                                    <li><a href="#">Consultas y Votaciones</a></li>
+                                    <li><a href="#">Seguimiento de Proyectos</a></li>
+                                    <li><a href="#">Archivo Digital</a></li>
+                                    <li><a href="#">Preguntas Frecuentes</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- SERVICIOS -->
+                            <li class="nav-item has-dropdown">
+                                <a href="#" class="nav-link">Servicios</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-subtitle">Servicios UNA</li>
+                                    <li><a href="#">Becas y Apoyo</a></li>
+                                    <li><a href="#">Salud y Bienestar</a></li>
+                                    <li><a href="#">Vida Universitaria</a></li>
+                                    <li><a href="#">Bibliotecas y Recursos</a></li>
+                                    <li class="dropdown-subtitle">Documentos</li>
+                                    <li><a href="#">Documentos para Descarga</a></li>
+                                    <li><a href="#">Guías para Estudiantes</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- OPORTUNIDADES -->
+                            <li class="nav-item has-dropdown">
+                                <a href="#" class="nav-link">Oportunidades</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Bolsa de Empleo</a></li>
+                                    <li><a href="#">Proyectos de TFG</a></li>
+                                    <li><a href="#">Horas Asistente</a></li>
+                                    <li><a href="#">Becas al Extranjero</a></li>
+                                    <li><a href="#">Posgrados</a></li>
+                                    <li><a href="#">Voluntariados</a></li>
+                                    <li><a href="#">Concursos</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- CONTACTO -->
+                            <li class="nav-item has-dropdown">
+                                <a href="#" class="nav-link">Contacto</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Información de Contacto</a></li>
+                                    <li><a href="#">Formulario de Contacto</a></li>
+                                    <li><a href="#">¡Sé Parte de FEUNA!</a></li>
+                                    <li><a href="#">Redes Sociales</a></li>
+                                    <li><a href="#">Denuncias y Sugerencias</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <button class="mobile-menu-btn" aria-label="Menú">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    <!-- BREADCRUMB -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span class="separator">/</span>
+                <a href="#">Representación</a>
+                <span class="separator">/</span>
+                <span class="current">DEUNA</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Directorio Estudiantil (DEUNA)</h1>
+            <p class="page-subtitle">Representantes estudiantiles de la FEUNA 2024-2026</p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <section class="content-section">
+        <div class="container">
+            <!-- Introducción -->
+            <div class="intro-block">
+                <p class="intro-text">
+                    El <strong>Directorio Estudiantil (DEUNA)</strong> es el órgano ejecutivo de la FEUNA, encargado de representar a la comunidad estudiantil en el Consejo Universitario, CONSACA y otros espacios de toma de decisiones. Sus miembros son electos mediante votación universal, directa y secreta por un período de dos años.
+                </p>
+            </div>
+
+            <!-- INTEGRANTES DEL DEUNA -->
+            <div class="members-section">
+                <h2 class="section-title">Integrantes DEUNA 2024-2026</h2>
+                
+                <div class="members-grid">
+                    <!-- Fila 1 -->
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/marco-viquez.jpg" alt="Marco Viquez Fallas">
+                        </div>
+                        <h3 class="member-name">Marco Viquez Fallas</h3>
+                        <p class="member-position">Presidencia</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/daniela-chaves.jpg" alt="Daniela Chaves Matamoros">
+                        </div>
+                        <h3 class="member-name">Daniela Chaves Matamoros</h3>
+                        <p class="member-position">Secretaría general</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/dilan-gomez.jpg" alt="Dilan Gómez Arias">
+                        </div>
+                        <h3 class="member-name">Dilan Gómez Arias</h3>
+                        <p class="member-position">Comisión de finanzas</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/einer-canales.jpg" alt="Einer Canales Campos">
+                        </div>
+                        <h3 class="member-name">Einer Canales Campos</h3>
+                        <p class="member-position">Comisión de finanzas</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/cristofer-guerrero.jpg" alt="Cristofer Guerrero Lepiz">
+                        </div>
+                        <h3 class="member-name">Cristofer Guerrero Lepiz</h3>
+                        <p class="member-position">Comisión de asuntos universitarios</p>
+                    </div>
+
+                    <!-- Fila 2 -->
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/avril-flores.jpg" alt="Avril Flores Chaves">
+                        </div>
+                        <h3 class="member-name">Avril Flores Chaves</h3>
+                        <p class="member-position">Comisión de asuntos nacionales e internacionales</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/mery-fonseca.jpg" alt="Mery Ann Fonseca López">
+                        </div>
+                        <h3 class="member-name">Mery Ann Fonseca López</h3>
+                        <p class="member-position">Comisión de asuntos ecológicos</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/andrea-sisfontes.jpg" alt="Andrea Sisfontes Sandí">
+                        </div>
+                        <h3 class="member-name">Andrea Sisfontes Sandí</h3>
+                        <p class="member-position">Comisión de diversidad, equidad y género</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/yariel-miranda.jpg" alt="Yariel Miranda Chaves">
+                        </div>
+                        <h3 class="member-name">Yariel Miranda Chaves</h3>
+                        <p class="member-position">Comisión de asuntos regionales</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/cristofer-castro.jpg" alt="Cristofer Castro Fallas">
+                        </div>
+                        <h3 class="member-name">Cristofer Castro Fallas</h3>
+                        <p class="member-position">Comisión de cultura, recreación y deporte</p>
+                    </div>
+
+                    <!-- Fila 3 -->
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/isabel-sanchez.jpg" alt="Isabel Sanchez Lizano">
+                        </div>
+                        <h3 class="member-name">Isabel Sanchez Lizano</h3>
+                        <p class="member-position">Comisión de cultura, recreación y deporte</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/gabriel-sancho.jpg" alt="Gabriel Sancho Quintanilla">
+                        </div>
+                        <h3 class="member-name">Gabriel Sancho Quintanilla</h3>
+                        <p class="member-position">Oficina de comunicación e información</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/stephanie-ruiz.jpg" alt="Stephanie Ruiz Matamoros">
+                        </div>
+                        <h3 class="member-name">Stephanie Ruiz Matamoros</h3>
+                        <p class="member-position">Oficina de comunicación e información</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/nataly-mendoza.jpg" alt="Nataly Mendoza Hernández">
+                        </div>
+                        <h3 class="member-name">Nataly Mendoza Hernández</h3>
+                        <p class="member-position">Consejo universitario, (propiedad 1°)</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/omar-morales.jpg" alt="Omar Morales Torres">
+                        </div>
+                        <h3 class="member-name">Omar Morales Torres</h3>
+                        <p class="member-position">Consejo universitario (suplencia 1°)</p>
+                    </div>
+
+                    <!-- Fila 4 -->
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/christopher-ulate.jpg" alt="Christopher Ulate Orozco">
+                        </div>
+                        <h3 class="member-name">Christopher Ulate Orozco</h3>
+                        <p class="member-position">Consejo universitario, (propiedad 2°)</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/iris-lopez.jpg" alt="Iris Lopez Cruz">
+                        </div>
+                        <h3 class="member-name">Iris Lopez Cruz</h3>
+                        <p class="member-position">Consejo universitario (suplencia 2°)</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/laura-flores.jpg" alt="Laura Flores Barrantes">
+                        </div>
+                        <h3 class="member-name">Laura Flores Barrantes</h3>
+                        <p class="member-position">CONSACA, (propiedad 1°)</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/sebastian-sanchez.jpg" alt="Sebastián Sánchez Padilla">
+                        </div>
+                        <h3 class="member-name">Sebastián Sánchez Padilla</h3>
+                        <p class="member-position">CONSACA, (suplencia 1°)</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/yassir-jimenez.jpg" alt="Yassir Jiménez Carballo">
+                        </div>
+                        <h3 class="member-name">Yassir Jiménez Carballo</h3>
+                        <p class="member-position">CONSACA, (propiedad 2°)</p>
+                    </div>
+
+                    <!-- Fila 5 -->
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/ariana-esquivel.jpg" alt="Ariana Esquivel Flores">
+                        </div>
+                        <h3 class="member-name">Ariana Esquivel Flores</h3>
+                        <p class="member-position">CONSACA, (suplencia 2°)</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/valeria-espinoza.jpg" alt="Valeria Espinoza Aguilar">
+                        </div>
+                        <h3 class="member-name">Valeria Espinoza Aguilar</h3>
+                        <p class="member-position">CONSACA, (propiedad 3°)</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/pablo-carballo.jpg" alt="Pablo Carballo Chaves">
+                        </div>
+                        <h3 class="member-name">Pablo Carballo Chaves</h3>
+                        <p class="member-position">CONSACA, (suplencia 3°)</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/bryam-bejarano.jpg" alt="Bryam Bejarano Rucavado">
+                        </div>
+                        <h3 class="member-name">Bryam Bejarano Rucavado</h3>
+                        <p class="member-position">CONSACA, (propiedad 4°)</p>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="images/deuna/carolina-arrieta.jpg" alt="Carolina Arrieta Angulo">
+                        </div>
+                        <h3 class="member-name">Carolina Arrieta Angulo</h3>
+                        <p class="member-position">CONSACA, (propiedad 4°)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información adicional -->
+            <div class="info-section">
+                <div class="info-cards-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>Competencias del DEUNA</h3>
+                        <p>Representar a la comunidad estudiantil, atender y ejecutar los acuerdos del CAEUNA, Congreso de Estudiantes y Asamblea General.</p>
+                        <a href="#" class="btn-secondary">Ver reglamento</a>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-vote-yea"></i>
+                        </div>
+                        <h3>Modalidad de Elección</h3>
+                        <p>Electos mediante votación universal, directa y secreta por la comunidad estudiantil. Período: 2 años.</p>
+                        <a href="#" class="btn-secondary">Proceso electoral</a>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Contacto DEUNA</h3>
+                        <p>¿Tenés consultas o necesitás contactar al Directorio Estudiantil?</p>
+                        <a href="#" class="btn-secondary">Contactar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
