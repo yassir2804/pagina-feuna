@@ -73,6 +73,7 @@ El foco no es solo "maquetar", sino traducir decisiones de arquitectura de infor
 
 - `scripts/install-and-build.ps1`: instalacion y build local.
 - `scripts/deploy-cloudflare-automation.ps1`: crea/verifica proyecto Pages y configura secrets en GitHub.
+- Detalle de uso y alcance: `scripts/README.md`.
 
 ## CI/CD y despliegue
 
