@@ -4,7 +4,7 @@ import { FileSignature, Users, Megaphone, MessageSquare, Mail, ArrowRight, Alert
 
 const formas = [
   { icon: FileSignature, title: "E-Peticiones", desc: "Enviá una petición formal al gobierno estudiantil. Cada petición será atendida y respondida oficialmente.", href: "/epeticiones", cta: "Enviar petición" },
-  { icon: Megaphone, title: "Propuestas y proyectos", desc: "Proponé ideas, proyectos o iniciativas para mejorar la vida universitaria. Tu voz importa.", href: "/participacion", cta: "Hacer propuesta" },
+  { icon: Megaphone, title: "Propuestas y proyectos", desc: "Proponé ideas, proyectos o iniciativas para mejorar la vida universitaria. Tu voz importa.", href: "/participa/propone", cta: "Hacer propuesta" },
   { icon: Users, title: "Asambleas y espacios", desc: "Participá en asambleas generales, foros temáticos y espacios de diálogo estudiantil.", href: "/eventos", cta: "Ver agenda" },
   { icon: AlertTriangle, title: "Denuncias y sugerencias", desc: "Canal seguro y confidencial para denuncias de irregularidades o sugerencias de mejora.", href: "/denuncias", cta: "Enviar denuncia" },
 ];

@@ -552,11 +552,11 @@ export function MovimientoIndigenPage() {
             Un espacio para conocer cómo se promueve la diversidad cultural y se integra al estudiantado indígena en la UNA.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="/participacion" className="inline-flex items-center gap-2 bg-white text-[#034991] px-6 py-3 rounded hover:bg-white/90 transition-colors" style={{ fontSize: '15px', fontWeight: 600 }}>
+            <a href="/participa/sumate" className="inline-flex items-center gap-2 bg-white text-[#034991] px-6 py-3 rounded hover:bg-white/90 transition-colors" style={{ fontSize: '15px', fontWeight: 600 }}>
               <Users size={18} />
               Ver participación estudiantil
             </a>
-            <a href="/servicios" className="inline-flex items-center gap-2 bg-[#bb1f1f] text-white px-6 py-3 rounded hover:bg-[#8b1515] transition-colors" style={{ fontSize: '15px', fontWeight: 600 }}>
+            <a href="/apoyo-recursos/servicios" className="inline-flex items-center gap-2 bg-[#bb1f1f] text-white px-6 py-3 rounded hover:bg-[#8b1515] transition-colors" style={{ fontSize: '15px', fontWeight: 600 }}>
               <Heart size={18} />
               Conocer servicios
             </a>

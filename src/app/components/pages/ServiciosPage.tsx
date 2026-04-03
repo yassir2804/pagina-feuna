@@ -8,7 +8,7 @@ import {
 const serviciosFEUNA = [
   { icon: FileText, title: "Exoneración y trámites", desc: "Gestión de exoneración de matrícula, constancias y trámites estudiantiles ante la FEUNA.", href: "/tramites" },
   { icon: Shield, title: "DEFEUNA (Defensoría Estudiantil)", desc: "Asesoría y defensa de derechos estudiantiles ante instancias universitarias.", href: "/defensoria" },
-  { icon: Handshake, title: "Orientación y servicios", desc: "Acompañamiento, orientación y apoyo general para el estudiantado.", href: "/servicios" },
+  { icon: Handshake, title: "Orientación y servicios", desc: "Acompañamiento, orientación y apoyo general para el estudiantado.", href: "/apoyo-recursos/servicios" },
 ];
 
 const serviciosUNA = [

@@ -58,8 +58,8 @@ export function Footer() {
           </div>
           <p className="text-[#666]" style={{ fontSize: '13px' }}>© 2025 FEUNA - Todos los derechos reservados</p>
           <div className="flex justify-center gap-6 mt-2">
-            <a href="#" className="text-[#666] hover:text-white transition-colors" style={{ fontSize: '13px' }}>Política de Privacidad</a>
-            <a href="#" className="text-[#666] hover:text-white transition-colors" style={{ fontSize: '13px' }}>Términos de Uso</a>
+            <Link to="/transparencia" className="text-[#666] hover:text-white transition-colors" style={{ fontSize: '13px' }}>Política de Privacidad</Link>
+            <Link to="/estatuto" className="text-[#666] hover:text-white transition-colors" style={{ fontSize: '13px' }}>Términos de Uso</Link>
           </div>
         </div>
       </div>

@@ -60,12 +60,24 @@ export const router = createBrowserRouter([
       { path: "apoyo-recursos/servicios", Component: ApoyoServiciosPage },
       { path: "apoyo-recursos/recursos-una", Component: ApoyoRecursosUNAPage },
       { path: "apoyo-recursos/denuncias", Component: ApoyoDenunciasPage },
+      { path: "apoyo-recursos/reportar", element: <Navigate to="/apoyo-recursos/denuncias" replace /> },
+      { path: "apoyo-recursos/sugerir", element: <Navigate to="/apoyo-recursos/denuncias" replace /> },
       
       // Participa - redirige a sumate por defecto
       { path: "participa", element: <Navigate to="/participa/sumate" replace /> },
       { path: "participa/sumate", Component: ParticipaSumatePage },
       { path: "participa/propone", Component: ParticipaProponePage },
       { path: "participa/espacios", Component: ParticipaEspaciosPage },
+      { path: "participa/publicar-oportunidad", element: <Navigate to="/oportunidades" replace /> },
+      { path: "participa/proponer-espacio", element: <Navigate to="/participa/espacios" replace /> },
+      { path: "participa/proponer/formulario", element: <Navigate to="/participa/propone" replace /> },
+      { path: "participa/epeticion", element: <Navigate to="/epeticiones" replace /> },
+      { path: "participa/iniciativa", element: <Navigate to="/participa/propone" replace /> },
+      { path: "participa/formulario/:tipo", element: <Navigate to="/participa/sumate" replace /> },
+      
+      // Alias legacy para enlaces antiguos
+      { path: "participacion", element: <Navigate to="/participa/sumate" replace /> },
+      { path: "servicios", element: <Navigate to="/apoyo-recursos/servicios" replace /> },
       
       { path: "oportunidades", Component: OportunidadesPage },
       { path: "transparencia", Component: TransparenciaPage },

@@ -593,7 +593,7 @@ export function TeeUnaPage() {
               <FileText size={18} />
               Ver transparencia
             </a>
-            <a href="/participacion" className="inline-flex items-center gap-2 bg-[#bb1f1f] text-white px-6 py-3 rounded hover:bg-[#8b1515] transition-colors" style={{ fontSize: '15px', fontWeight: 600 }}>
+            <a href="/participa/sumate" className="inline-flex items-center gap-2 bg-[#bb1f1f] text-white px-6 py-3 rounded hover:bg-[#8b1515] transition-colors" style={{ fontSize: '15px', fontWeight: 600 }}>
               <UserPlus size={18} />
               Conocer participación estudiantil
             </a>
