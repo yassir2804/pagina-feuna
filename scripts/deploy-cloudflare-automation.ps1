@@ -41,6 +41,12 @@ if ([string]::IsNullOrWhiteSpace($CloudflareToken)) {
     Abort "No se recibio Cloudflare API token."
 }
 
+if ($CloudflareToken.StartsWith("cfat_")) {
+    Write-Host "Token recibido correctamente."
+} else {
+    Write-Host "Advertencia: el token no tiene el prefijo esperado de Cloudflare. Verifica que sea valido." -ForegroundColor Yellow
+}
+
 Write-Host "Repositorio: $GitHubRepo"
 Write-Host "Proyecto Pages: $CloudflareProject"
 Write-Host "Account ID: $CloudflareAccountId"
