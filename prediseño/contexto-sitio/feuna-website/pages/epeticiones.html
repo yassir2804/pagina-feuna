@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Peticiones – FEUNA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div id="header-placeholder"></div>
+<section class="breadcrumb-section"><div class="container"><nav class="breadcrumb"><a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span class="separator">/</span><a href="tramites.html">Trámites</a><span class="separator">/</span><span class="current">E-Peticiones</span></nav></div></section>
+<section class="page-header"><div class="container"><h1 class="page-title">E-Peticiones y Propuestas</h1><p class="page-subtitle">Presentá formalmente tus propuestas y solicitudes al DEUNA</p></div></section>
+<section class="content-section">
+  <div class="container">
+    <div class="content-grid">
+      <div class="main-content">
+        <div class="intro-block"><p class="intro-text">Una <strong>e-petición</strong> es un mecanismo para que cualquier estudiante o asociación presente propuestas, solicitudes o reclamos formales al DEUNA de manera digital. Recibirás número de seguimiento al enviar.</p></div>
+
+        <h2 class="subsection-title"><i class="fas fa-paper-plane text-azul"></i> Nueva E-Petición</h2>
+        <div class="form-card" style="max-width:100%;margin-bottom:48px">
+          <div class="form-grid">
+            <div class="form-group"><label>Nombre completo</label><input type="text" placeholder="Tu nombre"></div>
+            <div class="form-group"><label>Correo institucional</label><input type="email" placeholder="usuario@una.cr"></div>
+            <div class="form-group full"><label>Título de la petición</label><input type="text" placeholder="Resumí tu petición en pocas palabras"></div>
+            <div class="form-group full"><label>Categoría</label>
+              <select><option>Infraestructura</option><option>Académico</option><option>Bienestar estudiantil</option><option>Representación</option><option>Trámites</option><option>Servicios</option><option>Otro</option></select>
+            </div>
+            <div class="form-group full"><label>Descripción detallada</label><textarea style="min-height:140px" placeholder="Describí tu petición con todos los detalles relevantes..."></textarea></div>
+          </div>
+          <button class="btn-primary" style="margin-top:16px"><i class="fas fa-paper-plane"></i> Enviar petición</button>
+        </div>
+
+        <h2 class="subsection-title"><i class="fas fa-list text-azul"></i> E-Peticiones Activas</h2>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="background:var(--blanco);border:1px solid var(--gris-borde);border-radius:var(--radio);padding:18px;border-left:4px solid var(--azul)">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+              <div><h4 style="font-weight:700;margin-bottom:4px">Mejora del transporte universitario hacia sede Brunca</h4><p style="font-size:0.82rem;color:var(--gris)">Infraestructura · Recibida el 10 nov 2025</p></div>
+              <span style="background:#d4edda;color:#155724;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600">En revisión</span>
+            </div>
+          </div>
+          <div style="background:var(--blanco);border:1px solid var(--gris-borde);border-radius:var(--radio);padding:18px;border-left:4px solid var(--rojo)">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+              <div><h4 style="font-weight:700;margin-bottom:4px">Ampliación del horario de la clínica universitaria</h4><p style="font-size:0.82rem;color:var(--gris)">Bienestar · Recibida el 05 nov 2025</p></div>
+              <span style="background:#cce5ff;color:#004085;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600">Respondida</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="sidebar">
+        <div class="sidebar-widget"><h3 class="widget-title">¿Cómo funciona?</h3><div class="actions-timeline" style="margin-top:8px"><div class="timeline-item"><div class="timeline-marker" style="width:32px;height:32px;min-width:32px;font-size:0.8rem">1</div><div class="timeline-content"><h4>Completá el formulario</h4><p>Describí tu petición con claridad.</p></div></div><div class="timeline-item"><div class="timeline-marker" style="width:32px;height:32px;min-width:32px;font-size:0.8rem">2</div><div class="timeline-content"><h4>Recibís confirmación</h4><p>Te llega un número de seguimiento.</p></div></div><div class="timeline-item"><div class="timeline-marker" style="width:32px;height:32px;min-width:32px;font-size:0.8rem">3</div><div class="timeline-content"><h4>DEUNA revisa</h4><p>El Directorio analiza tu propuesta.</p></div></div><div class="timeline-item"><div class="timeline-marker" style="width:32px;height:32px;min-width:32px;font-size:0.8rem">4</div><div class="timeline-content"><h4>Recibís respuesta</h4><p>Te notificamos el resultado.</p></div></div></div></div>
+      </aside>
+    </div>
+  </div>
+</section>
+<div id="footer-placeholder"></div>
+<script src="../js/main.js"></script>
+</body>
+</html>

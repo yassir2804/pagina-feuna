@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEUNA - Federación de Estudiantes Universidad Nacional</title>
+    
+    <!-- Google Fonts - Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- HEADER - DOS NIVELES -->
+    <header class="main-header">
+        <!-- Top Bar: Logo, Redes Sociales, Búsqueda -->
+        <div class="top-bar">
+            <div class="container-full">
+                <div class="top-bar-content">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/logo-feuna.png" alt="FEUNA - Federación de Estudiantes UNA" class="logo-img">
+                        </a>
+                    </div>
+                    
+                    <div class="header-right">
+                        <div class="header-search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Buscar...">
+                        </div>
+                        
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/feunaoficial" target="_blank" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="https://www.instagram.com/feuna_oficial" target="_blank" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Bar: 8 secciones principales con submenús - STICKY -->
+        <div class="nav-bar">
+            <div class="container-full">
+                <div class="header-content">
+                    <nav class="main-nav">
+                        <ul class="nav-list">
+                            <!-- INICIO -->
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link active">Inicio</a>
+                            </li>
+                            
+                            <!-- FEUNA -->
+                            <li class="nav-item has-dropdown">
+                                <a href="feuna.html" class="nav-link">FEUNA</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="feuna.html">¿Qué es la FEUNA?</a></li>
+                                    <li><a href="#">Historia y Logros</a></li>
+                                    <li><a href="#">Estructura Organizativa</a></li>
+                                    <li><a href="#">Estatuto y Reglamentos</a></li>
+                                    <li><a href="#">Plan de Trabajo</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- REPRESENTACIÓN -->
+                            <li class="nav-item has-dropdown">
+                                <a href="#" class="nav-link">Representación</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">¿Qué es la Representación?</a></li>
+                                    <li><a href="deuna.html">DEUNA (Directorio)</a></li>
+                                    <li><a href="#">CAEUNA (Consejo de Asociaciones)</a></li>
+                                    <li><a href="#">TEEUNA (Tribunal Electoral)</a></li>
+                                    <li><a href="#">Asociaciones Estudiantiles</a></li>
+                                    <li><a href="#">Representación en órganos UNA</a></li>
+                                    <li><a href="#">Transparencia y Rendición</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- NOTICIAS -->
+                            <li class="nav-item has-dropdown">
+                                <a href="#" class="nav-link">Noticias</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Todas las Noticias</a></li>
+                                    <li><a href="#">Eventos y Actividades</a></li>
+                                    <li><a href="#">Calendario FEUNA</a></li>
+                                    <li><a href="#">Boletines y Newsletter</a></li>
+                                    <li><a href="#">Streaming y Transmisiones</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- TRÁMITES -->
+                            <li class="nav-item has-dropdown">
+                                <a href="#" class="nav-link">Trámites</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Formularios Digitales</a></li>
+                                    <li><a href="#">E-Peticiones</a></li>
+                                    <li><a href="#">Consultas y Votaciones</a></li>
+                                    <li><a href="#">Seguimiento de Proyectos</a></li>
+                                    <li><a href="#">Archivo Digital</a></li>
+                                    <li><a href="#">Preguntas Frecuentes</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- SERVICIOS -->
+                            <li class="nav-item has-dropdown">
+                                <a href="#" class="nav-link">Servicios</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-subtitle">Servicios UNA</li>
+                                    <li><a href="#">Becas y Apoyo</a></li>
+                                    <li><a href="#">Salud y Bienestar</a></li>
+                                    <li><a href="#">Vida Universitaria</a></li>
+                                    <li><a href="#">Bibliotecas y Recursos</a></li>
+                                    <li class="dropdown-subtitle">Documentos</li>
+                                    <li><a href="#">Documentos para Descarga</a></li>
+                                    <li><a href="#">Guías para Estudiantes</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- OPORTUNIDADES -->
+                            <li class="nav-item has-dropdown">
+                                <a href="#" class="nav-link">Oportunidades</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Bolsa de Empleo</a></li>
+                                    <li><a href="#">Proyectos de TFG</a></li>
+                                    <li><a href="#">Horas Asistente</a></li>
+                                    <li><a href="#">Becas al Extranjero</a></li>
+                                    <li><a href="#">Posgrados</a></li>
+                                    <li><a href="#">Voluntariados</a></li>
+                                    <li><a href="#">Concursos</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- CONTACTO -->
+                            <li class="nav-item has-dropdown">
+                                <a href="#" class="nav-link">Contacto</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Información de Contacto</a></li>
+                                    <li><a href="#">Formulario de Contacto</a></li>
+                                    <li><a href="#">¡Sé Parte de FEUNA!</a></li>
+                                    <li><a href="#">Redes Sociales</a></li>
+                                    <li><a href="#">Denuncias y Sugerencias</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <button class="mobile-menu-btn" aria-label="Menú">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-slideshow">
+            <div class="hero-slide active" style="background-image: url('images/hero-campus.jpg');">
+                <div class="hero-overlay"></div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="hero-title">¡ATRÉVETE A VIVIR LA U MÁS ALLÁ DE LAS AULAS!</h1>
+                <p class="hero-subtitle">
+                    Involúcrate en alguna agrupación: voluntariado, arte, deporte, recreación, bienestar, feminismos, política, representación estudiantil entre otras. Vive la experiencia universitaria completa y expande tus habilidades mientras disfrutas de momentos únicos.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="#" class="hero-btn">
+                        <i class="fas fa-users"></i>
+                        <span>Sé Parte</span>
+                    </a>
+                    <a href="#" class="hero-btn">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Noticias</span>
+                    </a>
+                    <a href="#" class="hero-btn">
+                        <i class="fas fa-laptop"></i>
+                        <span>Trámites</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EJES DEL PLAN DE TRABAJO -->
+    <section class="ejes-section">
+        <div class="container">
+            <h2 class="section-title">Ejes del Plan de Trabajo</h2>
+            
+            <div class="ejes-grid">
+                <!-- Card 1: Trámites -->
+                <div class="eje-card">
+                    <div class="eje-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="eje-title">Trámites Digitales</h3>
+                    <p class="eje-description">
+                        Formularios digitales, chatbot informativo, seguimiento de proyectos y archivo de documentos accesibles.
+                    </p>
+                    <a href="#" class="eje-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 2: Participación -->
+                <div class="eje-card">
+                    <div class="eje-icon">
+                        <i class="fas fa-vote-yea"></i>
+                    </div>
+                    <h3 class="eje-title">Participación</h3>
+                    <p class="eje-description">
+                        E-peticiones, consultas, presupuesto abierto, actas y rendición de cuentas en un solo lugar.
+                    </p>
+                    <a href="#" class="eje-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 3: Comunicación -->
+                <div class="eje-card">
+                    <div class="eje-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="eje-title">Comunicación</h3>
+                    <p class="eje-description">
+                        Noticias, calendario de eventos, streaming de asambleas y newsletter semanal.
+                    </p>
+                    <a href="#" class="eje-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 4: Asociaciones -->
+                <div class="eje-card">
+                    <div class="eje-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="eje-title">Asociaciones</h3>
+                    <p class="eje-description">
+                        Juntas directivas de asociaciones, órganos de FEUNA y representantes ante el CU y CONSACA de la UNA.
+                    </p>
+                    <a href="feuna.html" class="eje-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÁREAS TEMÁTICAS -->
+    <section class="tags-section">
+        <div class="container">
+            <h2 class="section-title">Áreas Temáticas de Trabajo</h2>
+            <p class="section-subtitle">Conocé los ejes estratégicos del movimiento estudiantil</p>
+            
+            <div class="tags-grid">
+                <button class="tag-btn" data-eje="regionalizacion">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Regionalización</span>
+                </button>
+                <button class="tag-btn" data-eje="salud">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Salud Integral</span>
+                </button>
+                <button class="tag-btn" data-eje="cultura">
+                    <i class="fas fa-palette"></i>
+                    <span>Cultura</span>
+                </button>
+                <button class="tag-btn" data-eje="diversidad">
+                    <i class="fas fa-hands-helping"></i>
+                    <span>Diversidad</span>
+                </button>
+                <button class="tag-btn" data-eje="comunicacion">
+                    <i class="fas fa-comments"></i>
+                    <span>Comunicación</span>
+                </button>
+                <button class="tag-btn" data-eje="ambiente">
+                    <i class="fas fa-leaf"></i>
+                    <span>Ambiente</span>
+                </button>
+                <button class="tag-btn" data-eje="digital">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Digital</span>
+                </button>
+                <button class="tag-btn" data-eje="vinculacion">
+                    <i class="fas fa-handshake"></i>
+                    <span>Vinculación</span>
+                </button>
+                <button class="tag-btn" data-eje="educacion">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Educación</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTICIAS DESTACADAS -->
+    <section class="noticias-section">
+        <div class="container">
+            <h2 class="section-title">Noticias Destacadas</h2>
+            
+            <div class="noticias-grid">
+                <!-- Noticia 1 -->
+                <article class="noticia-card">
+                    <div class="noticia-image" style="background-image: url('images/noticia-1.jpg');"></div>
+                    <div class="noticia-content">
+                        <span class="noticia-tag">
+                            <i class="fas fa-map-marked-alt"></i> Regionalización
+                        </span>
+                        <h3 class="noticia-title">FEUNA visita sede regional Brunca para fortalecer participación</h3>
+                        <p class="noticia-date"><i class="far fa-calendar-alt"></i> 20 de noviembre, 2025</p>
+                        <a href="#" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Noticia 2 -->
+                <article class="noticia-card">
+                    <div class="noticia-image" style="background-image: url('images/noticia-2.jpg');"></div>
+                    <div class="noticia-content">
+                        <span class="noticia-tag">
+                            <i class="fas fa-graduation-cap"></i> Educación Pública
+                        </span>
+                        <h3 class="noticia-title">Estudiantes UNA marchan por defensa del FEES 2026</h3>
+                        <p class="noticia-date"><i class="far fa-calendar-alt"></i> 19 de noviembre, 2025</p>
+                        <a href="#" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Noticia 3 -->
+                <article class="noticia-card">
+                    <div class="noticia-image" style="background-image: url('images/noticia-3.jpg');"></div>
+                    <div class="noticia-content">
+                        <span class="noticia-tag">
+                            <i class="fas fa-palette"></i> Cultura
+                        </span>
+                        <h3 class="noticia-title">Festival Cultural FEUNA 2025: arte, música y resistencia</h3>
+                        <p class="noticia-date"><i class="far fa-calendar-alt"></i> 18 de noviembre, 2025</p>
+                        <a href="#" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="section-cta">
+                <a href="#" class="btn-secondary">Ver todas las noticias <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRÓXIMOS EVENTOS -->
+    <section class="eventos-section">
+        <div class="container">
+            <h2 class="section-title">Próximos Eventos</h2>
+            
+            <div class="eventos-list">
+                <div class="evento-item">
+                    <div class="evento-date">
+                        <span class="evento-day">25</span>
+                        <span class="evento-month">NOV</span>
+                    </div>
+                    <div class="evento-info">
+                        <h3 class="evento-title">Asamblea General FEUNA</h3>
+                        <p class="evento-details">
+                            <i class="fas fa-map-marker-alt"></i> Auditorio UNA
+                            <i class="far fa-clock"></i> 10:00 am
+                        </p>
+                    </div>
+                </div>
+
+                <div class="evento-item">
+                    <div class="evento-date">
+                        <span class="evento-day">28</span>
+                        <span class="evento-month">NOV</span>
+                    </div>
+                    <div class="evento-info">
+                        <h3 class="evento-title">Taller de Diversidad, Equidad y Género</h3>
+                        <p class="evento-details">
+                            <i class="fas fa-map-marker-alt"></i> Sala Multiusos
+                            <i class="far fa-clock"></i> 2:00 pm
+                        </p>
+                    </div>
+                </div>
+
+                <div class="evento-item">
+                    <div class="evento-date">
+                        <span class="evento-day">01</span>
+                        <span class="evento-month">DIC</span>
+                    </div>
+                    <div class="evento-info">
+                        <h3 class="evento-title">Festival Cultural FEUNA 2025</h3>
+                        <p class="evento-details">
+                            <i class="fas fa-map-marker-alt"></i> Campus Omar Dengo
+                            <i class="far fa-clock"></i> 9:00 am
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-cta">
+                <a href="#" class="btn-secondary">Ver calendario completo <i class="far fa-calendar-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS ESTUDIANTILES -->
+    <section class="servicios-section">
+        <div class="container">
+            <h2 class="section-title">Servicios Estudiantiles</h2>
+            
+            <div class="servicios-grid">
+                <a href="#" class="servicio-btn">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>SIBEUNA</span>
+                </a>
+                <a href="#" class="servicio-btn">
+                    <i class="fas fa-book"></i>
+                    <span>Bibliotecas</span>
+                </a>
+                <a href="#" class="servicio-btn">
+                    <i class="fas fa-medkit"></i>
+                    <span>Salud</span>
+                </a>
+                <a href="#" class="servicio-btn">
+                    <i class="fas fa-edit"></i>
+                    <span>Matrícula</span>
+                </a>
+                <a href="#" class="servicio-btn">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>Aula Virtual</span>
+                </a>
+                <a href="#" class="servicio-btn">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Defensoría</span>
+                </a>
+            </div>
+            
+            <div class="section-cta">
+                <a href="#" class="btn-secondary">Ver todos los servicios <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSPARENCIA -->
+    <section class="transparencia-section">
+        <div class="container">
+            <div class="transparencia-content">
+                <h2 class="section-title-white">Transparencia</h2>
+                <p class="transparencia-text">
+                    Consultá el presupuesto de FEUNA, ejecución financiera, actas de órganos estudiantiles e informes de labores.
+                </p>
+                <div class="transparencia-actions">
+                    <a href="#" class="btn-white">Presupuesto</a>
+                    <a href="#" class="btn-white">Actas</a>
+                    <a href="#" class="btn-white">Informes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SÉ PARTE -->
+    <section class="se-parte-section">
+        <div class="container">
+            <div class="se-parte-content">
+                <h2 class="section-title">¡Sé Parte!</h2>
+                <p class="se-parte-text">
+                    Participá en las comisiones del DEUNA, voluntariados, asociaciones y proyectos del movimiento estudiantil. Encontrá tu espacio en la U.
+                </p>
+                <div class="se-parte-actions">
+                    <a href="#" class="btn-primary">Comisiones DEUNA</a>
+                    <a href="#" class="btn-primary">Inscribirme</a>
+                    <a href="#" class="btn-secondary">Asociaciones</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">FEUNA</h3>
+                    <ul class="footer-links">
+                        <li><a href="feuna.html">¿Qué es la FEUNA?</a></li>
+                        <li><a href="#">Estructura organizativa</a></li>
+                        <li><a href="#">Historia</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Servicios</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Becas</a></li>
+                        <li><a href="#">Salud</a></li>
+                        <li><a href="#">Bibliotecas</a></li>
+                        <li><a href="#">Defensoría</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Participación</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">E-Peticiones</a></li>
+                        <li><a href="#">Transparencia</a></li>
+                        <li><a href="#">Formularios</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Contacto</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> (506) 2277-3236</li>
+                        <li><i class="fas fa-envelope"></i> comunicacionfeuna@una.cr</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Heredia, Costa Rica</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-social">
+                <h3 class="footer-title">Redes Sociales</h3>
+                <div class="social-icons-footer">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 FEUNA - Todos los derechos reservados</p>
+                <div class="footer-legal">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

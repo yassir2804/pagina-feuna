@@ -52,13 +52,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', function() {
         const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            header.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.12)';
-        } else {
-            header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.08)';
+
+        if (header) {
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.12)';
+            } else {
+                header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.08)';
+            }
         }
-        
+
         lastScroll = currentScroll;
     });
     

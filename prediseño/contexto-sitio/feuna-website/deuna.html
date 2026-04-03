@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEUNA – Directorio Estudiantil | FEUNA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+<section class="breadcrumb-section">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+      <span class="separator">/</span>
+      <a href="#">Representación</a>
+      <span class="separator">/</span>
+      <span class="current">DEUNA</span>
+    </nav>
+  </div>
+</section>
+
+<section class="page-header">
+  <div class="container">
+    <h1 class="page-title">Directorio Estudiantil (DEUNA)</h1>
+    <p class="page-subtitle">Representantes estudiantiles de la FEUNA 2024–2026</p>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+
+    <div class="intro-block">
+      <p class="intro-text">El <strong>Directorio Estudiantil (DEUNA)</strong> es el órgano ejecutivo de la FEUNA, encargado de representar a la comunidad estudiantil en el Consejo Universitario, CONSACA y otros espacios de toma de decisiones. Sus miembros son electos mediante votación universal, directa y secreta por un período de dos años.</p>
+    </div>
+
+    <!-- Filtros grupo -->
+    <div class="filter-bar" style="margin-bottom:32px;">
+      <button class="filter-btn active" data-filter="all" data-target="members">Todos</button>
+      <button class="filter-btn" data-filter="directorio" data-target="members">Directorio</button>
+      <button class="filter-btn" data-filter="comision" data-target="members">Comisiones</button>
+      <button class="filter-btn" data-filter="comunicacion" data-target="members">Comunicación</button>
+      <button class="filter-btn" data-filter="cu" data-target="members">Consejo Universitario</button>
+      <button class="filter-btn" data-filter="consaca" data-target="members">CONSACA</button>
+    </div>
+
+    <!-- Directorio ejecutivo -->
+    <h2 class="subsection-title"><i class="fas fa-star text-azul"></i> Directorio Ejecutivo</h2>
+    <div class="members-grid" id="members">
+
+      <div class="member-card" data-category="directorio">
+        <div class="member-photo"><img src="images/deuna/marco-viquez.jpg" alt="Marco Viquez Fallas" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>MV</div>'"></div>
+        <h3 class="member-name">Marco Viquez Fallas</h3>
+        <p class="member-position">Presidencia</p>
+      </div>
+
+      <div class="member-card" data-category="directorio">
+        <div class="member-photo"><img src="images/deuna/daniela-chaves.jpg" alt="Daniela Chaves Matamoros" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>DC</div>'"></div>
+        <h3 class="member-name">Daniela Chaves Matamoros</h3>
+        <p class="member-position">Secretaría General</p>
+      </div>
+
+      <div class="member-card" data-category="comision">
+        <div class="member-photo"><img src="images/deuna/dilan-gomez.jpg" alt="Dilan Gómez Arias" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>DG</div>'"></div>
+        <h3 class="member-name">Dilan Gómez Arias</h3>
+        <p class="member-position">Comisión de Finanzas</p>
+      </div>
+
+      <div class="member-card" data-category="comision">
+        <div class="member-photo"><img src="images/deuna/einer-canales.jpg" alt="Einer Canales Campos" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>EC</div>'"></div>
+        <h3 class="member-name">Einer Canales Campos</h3>
+        <p class="member-position">Comisión de Finanzas</p>
+      </div>
+
+      <div class="member-card" data-category="comision">
+        <div class="member-photo"><img src="images/deuna/cristofer-guerrero.jpg" alt="Cristofer Guerrero Lepiz" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>CG</div>'"></div>
+        <h3 class="member-name">Cristofer Guerrero Lepiz</h3>
+        <p class="member-position">Comisión de Asuntos Universitarios</p>
+      </div>
+
+      <div class="member-card" data-category="comision">
+        <div class="member-photo"><img src="images/deuna/avril-flores.jpg" alt="Avril Flores Chaves" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>AF</div>'"></div>
+        <h3 class="member-name">Avril Flores Chaves</h3>
+        <p class="member-position">Comisión de Asuntos Nacionales e Internacionales</p>
+      </div>
+
+      <div class="member-card" data-category="comision">
+        <div class="member-photo"><img src="images/deuna/mery-fonseca.jpg" alt="Mery Ann Fonseca López" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>MF</div>'"></div>
+        <h3 class="member-name">Mery Ann Fonseca López</h3>
+        <p class="member-position">Comisión de Asuntos Ecológicos</p>
+      </div>
+
+      <div class="member-card" data-category="comision">
+        <div class="member-photo"><img src="images/deuna/andrea-sisfontes.jpg" alt="Andrea Sisfontes Sandí" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>AS</div>'"></div>
+        <h3 class="member-name">Andrea Sisfontes Sandí</h3>
+        <p class="member-position">Comisión de Diversidad, Equidad y Género</p>
+      </div>
+
+      <div class="member-card" data-category="comision">
+        <div class="member-photo"><img src="images/deuna/yariel-miranda.jpg" alt="Yariel Miranda Chaves" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>YM</div>'"></div>
+        <h3 class="member-name">Yariel Miranda Chaves</h3>
+        <p class="member-position">Comisión de Asuntos Regionales</p>
+      </div>
+
+      <div class="member-card" data-category="comision">
+        <div class="member-photo"><img src="images/deuna/cristofer-castro.jpg" alt="Cristofer Castro Fallas" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>CC</div>'"></div>
+        <h3 class="member-name">Cristofer Castro Fallas</h3>
+        <p class="member-position">Comisión de Cultura, Recreación y Deporte</p>
+      </div>
+
+      <div class="member-card" data-category="comision">
+        <div class="member-photo"><img src="images/deuna/isabel-sanchez.jpg" alt="Isabel Sanchez Lizano" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>IS</div>'"></div>
+        <h3 class="member-name">Isabel Sanchez Lizano</h3>
+        <p class="member-position">Comisión de Cultura, Recreación y Deporte</p>
+      </div>
+
+      <div class="member-card" data-category="comunicacion">
+        <div class="member-photo"><img src="images/deuna/gabriel-sancho.jpg" alt="Gabriel Sancho Quintanilla" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>GS</div>'"></div>
+        <h3 class="member-name">Gabriel Sancho Quintanilla</h3>
+        <p class="member-position">Oficina de Comunicación e Información</p>
+      </div>
+
+      <div class="member-card" data-category="comunicacion">
+        <div class="member-photo"><img src="images/deuna/stephanie-ruiz.jpg" alt="Stephanie Ruiz Matamoros" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>SR</div>'"></div>
+        <h3 class="member-name">Stephanie Ruiz Matamoros</h3>
+        <p class="member-position">Oficina de Comunicación e Información</p>
+      </div>
+
+      <div class="member-card" data-category="cu">
+        <div class="member-photo"><img src="images/deuna/nataly-mendoza.jpg" alt="Nataly Mendoza Hernández" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>NM</div>'"></div>
+        <h3 class="member-name">Nataly Mendoza Hernández</h3>
+        <p class="member-position">Consejo Universitario (Propiedad 1°)</p>
+      </div>
+
+      <div class="member-card" data-category="cu">
+        <div class="member-photo"><img src="images/deuna/omar-morales.jpg" alt="Omar Morales Torres" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>OM</div>'"></div>
+        <h3 class="member-name">Omar Morales Torres</h3>
+        <p class="member-position">Consejo Universitario (Suplencia 1°)</p>
+      </div>
+
+      <div class="member-card" data-category="cu">
+        <div class="member-photo"><img src="images/deuna/christopher-ulate.jpg" alt="Christopher Ulate Orozco" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>CU</div>'"></div>
+        <h3 class="member-name">Christopher Ulate Orozco</h3>
+        <p class="member-position">Consejo Universitario (Propiedad 2°)</p>
+      </div>
+
+      <div class="member-card" data-category="cu">
+        <div class="member-photo"><img src="images/deuna/iris-lopez.jpg" alt="Iris Lopez Cruz" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>IL</div>'"></div>
+        <h3 class="member-name">Iris Lopez Cruz</h3>
+        <p class="member-position">Consejo Universitario (Suplencia 2°)</p>
+      </div>
+
+      <div class="member-card" data-category="consaca">
+        <div class="member-photo"><img src="images/deuna/laura-flores.jpg" alt="Laura Flores Barrantes" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>LF</div>'"></div>
+        <h3 class="member-name">Laura Flores Barrantes</h3>
+        <p class="member-position">CONSACA (Propiedad 1°)</p>
+      </div>
+
+      <div class="member-card" data-category="consaca">
+        <div class="member-photo"><img src="images/deuna/sebastian-sanchez.jpg" alt="Sebastián Sánchez Padilla" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>SS</div>'"></div>
+        <h3 class="member-name">Sebastián Sánchez Padilla</h3>
+        <p class="member-position">CONSACA (Suplencia 1°)</p>
+      </div>
+
+      <div class="member-card" data-category="consaca">
+        <div class="member-photo"><img src="images/deuna/yassir-jimenez.jpg" alt="Yassir Jiménez Carballo" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>YJ</div>'"></div>
+        <h3 class="member-name">Yassir Jiménez Carballo</h3>
+        <p class="member-position">CONSACA (Propiedad 2°)</p>
+      </div>
+
+      <div class="member-card" data-category="consaca">
+        <div class="member-photo"><img src="images/deuna/ariana-esquivel.jpg" alt="Ariana Esquivel Flores" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>AE</div>'"></div>
+        <h3 class="member-name">Ariana Esquivel Flores</h3>
+        <p class="member-position">CONSACA (Suplencia 2°)</p>
+      </div>
+
+      <div class="member-card" data-category="consaca">
+        <div class="member-photo"><img src="images/deuna/valeria-espinoza.jpg" alt="Valeria Espinoza Aguilar" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>VE</div>'"></div>
+        <h3 class="member-name">Valeria Espinoza Aguilar</h3>
+        <p class="member-position">CONSACA (Propiedad 3°)</p>
+      </div>
+
+      <div class="member-card" data-category="consaca">
+        <div class="member-photo"><img src="images/deuna/pablo-carballo.jpg" alt="Pablo Carballo Chaves" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>PC</div>'"></div>
+        <h3 class="member-name">Pablo Carballo Chaves</h3>
+        <p class="member-position">CONSACA (Suplencia 3°)</p>
+      </div>
+
+      <div class="member-card" data-category="consaca">
+        <div class="member-photo"><img src="images/deuna/bryam-bejarano.jpg" alt="Bryam Bejarano Rucavado" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>BB</div>'"></div>
+        <h3 class="member-name">Bryam Bejarano Rucavado</h3>
+        <p class="member-position">CONSACA (Propiedad 4°)</p>
+      </div>
+
+      <div class="member-card" data-category="consaca">
+        <div class="member-photo"><img src="images/deuna/carolina-arrieta.jpg" alt="Carolina Arrieta Angulo" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.5rem;color:var(--azul)\'>CA</div>'"></div>
+        <h3 class="member-name">Carolina Arrieta Angulo</h3>
+        <p class="member-position">CONSACA (Suplencia 4°)</p>
+      </div>
+    </div>
+
+    <!-- Comisiones -->
+    <h2 class="subsection-title" style="margin-top:56px"><i class="fas fa-th text-azul"></i> Comisiones de Trabajo del DEUNA</h2>
+    <p class="content-text" style="margin-bottom:28px">Las comisiones son equipos especializados que ejecutan los ejes del Plan de Trabajo. Podés participar aunque no seas parte del DEUNA.</p>
+    <div class="info-cards-grid">
+      <div class="info-card"><div class="info-icon"><i class="fas fa-leaf"></i></div><h3>Asuntos Ecológicos</h3><p>Defensa del medio ambiente y prácticas sustentables en el campus.</p><a href="pages/participacion.html" class="btn-outline">Participar</a></div>
+      <div class="info-card"><div class="info-icon"><i class="fas fa-map-marked-alt"></i></div><h3>Asuntos Regionales</h3><p>Representación y apoyo a sedes regionales y estudiantes itinerantes.</p><a href="pages/participacion.html" class="btn-outline">Participar</a></div>
+      <div class="info-card"><div class="info-icon"><i class="fas fa-university"></i></div><h3>Asuntos Universitarios</h3><p>Defensa de la educación pública y vinculación con la sociedad.</p><a href="pages/participacion.html" class="btn-outline">Participar</a></div>
+      <div class="info-card"><div class="info-icon"><i class="fas fa-palette"></i></div><h3>Cultura, Recreación y Deporte</h3><p>Organización de actividades culturales, artísticas y deportivas.</p><a href="pages/participacion.html" class="btn-outline">Participar</a></div>
+      <div class="info-card"><div class="info-icon"><i class="fas fa-rainbow"></i></div><h3>Diversidad, Equidad y Género</h3><p>Apoyo a poblaciones vulnerabilizadas e igualdad de derechos.</p><a href="pages/participacion.html" class="btn-outline">Participar</a></div>
+      <div class="info-card"><div class="info-icon"><i class="fas fa-chart-bar"></i></div><h3>Finanzas</h3><p>Gestión presupuestaria y transparencia financiera de FEUNA.</p><a href="pages/participacion.html" class="btn-outline">Participar</a></div>
+      <div class="info-card"><div class="info-icon"><i class="fas fa-globe"></i></div><h3>Política Nacional e Internacional</h3><p>Comunicación y reactivación del movimiento estudiantil.</p><a href="pages/participacion.html" class="btn-outline">Participar</a></div>
+    </div>
+
+    <!-- Info cards -->
+    <div class="info-section">
+      <div class="info-cards-grid">
+        <div class="info-card"><div class="info-icon"><i class="fas fa-gavel"></i></div><h3>Competencias del DEUNA</h3><p>Representar a la comunidad estudiantil, atender y ejecutar los acuerdos del CAEUNA, Congreso de Estudiantes y Asamblea General.</p><a href="pages/reglamentos.html" class="btn-outline">Ver reglamento</a></div>
+        <div class="info-card"><div class="info-icon"><i class="fas fa-vote-yea"></i></div><h3>Modalidad de Elección</h3><p>Electos mediante votación universal, directa y secreta por la comunidad estudiantil. Período: 2 años.</p><a href="pages/teeuna.html" class="btn-outline">Proceso electoral</a></div>
+        <div class="info-card"><div class="info-icon"><i class="fas fa-phone"></i></div><h3>Contacto DEUNA</h3><p>¿Tenés consultas, propuestas o querés involucrarte en alguna comisión?</p><a href="pages/contacto.html" class="btn-outline">Contactar</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="js/main.js"></script>
+<script>
+// Extended filter logic for DEUNA members page
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.member-card').forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

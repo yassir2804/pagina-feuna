@@ -1,0 +1,193 @@
+project:
+  name: FEUNA Web Redesign
+  context: Federacion de Estudiantes de la Universidad Nacional
+  purpose: Centralize design tokens, routes, assets, copy, and placeholder rules for Figma AI and Claude Opus
+  sourceFiles:
+    - README.md
+    - ARQUITECTURA-SITIO-RENOVADO.md
+    - RESUMEN-EJECUTIVO.md
+    - CONTENIDO-SITIO.md
+    - sitio-actual/ANALISIS-SITIO-ACTUAL.md
+    - mockup/js/main.js
+    - mockup/css/styles.css
+    - mockup/common/header.html
+    - mockup/common/footer.html
+    - mockup/deuna.html
+
+tokens:
+  colors:
+    rojo_feuna: '#bb1f1f'
+    rojo_oscuro: '#8b1515'
+    azul_una: '#034991'
+    azul_gris: '#3d5a80'
+    negro: '#1a1a1a'
+    gris_oscuro: '#333333'
+    gris_medio: '#666666'
+    gris_claro: '#f5f5f5'
+    gris_bordes: '#dddddd'
+    blanco: '#ffffff'
+  typography:
+    primary: 'Space Grotesk'
+    weights: [300, 400, 500, 600, 700]
+  layout:
+    max_content_width: '1200px'
+    border_radius_base: '4px'
+    spacing_unit: '8px'
+    responsive_breakpoints:
+      mobile: '320px'
+      tablet: '768px'
+      desktop: '1024px'
+      wide: '1440px'
+  shadows:
+    soft: '0 1px 3px rgba(0, 0, 0, 0.1)'
+    medium: '0 2px 8px rgba(0, 0, 0, 0.12)'
+    card: '0 2px 6px rgba(0, 0, 0, 0.08)'
+
+routes:
+  base_pages:
+    - mockup/index.html
+    - mockup/feuna.html
+    - mockup/deuna.html
+    - mockup/noticias.html
+    - mockup/servicios.html
+    - mockup/oportunidades.html
+    - mockup/participacion.html
+    - mockup/transparencia.html
+  representation:
+    - mockup/caeuna.html
+    - mockup/teeuna.html
+    - mockup/cefeuna.html
+    - mockup/mei.html
+    - mockup/defensor.html
+    - mockup/asociaciones.html
+    - mockup/representacion-cu.html
+    - mockup/archivo.html
+  services:
+    - mockup/becas.html
+    - mockup/salud.html
+    - mockup/guias.html
+    - mockup/vida-universitaria.html
+    - mockup/sistemas.html
+    - mockup/tramites.html
+    - mockup/reservas.html
+    - mockup/epeticiones.html
+    - mockup/faq.html
+    - mockup/boletines.html
+    - mockup/eventos.html
+    - mockup/denuncias.html
+    - mockup/contacto.html
+    - mockup/reglamentos.html
+    - mockup/plan-trabajo.html
+  shared_components:
+    - mockup/common/header.html
+    - mockup/common/footer.html
+    - mockup/js/main.js
+
+assets:
+  logos:
+    - mockup/images/logo-feuna.png
+  support_images:
+    - mockup/images/banner-acerca-de-feuna.png
+    - mockup/images/hero-1.jpg
+    - mockup/images/reunion.png
+    - mockup/images/estudiantes-manifestacion.png
+  passport_folder: mockup/images/Fotos tamaño pasaporte, (JPG)/
+  passport_placeholder: mockup/images/passport-placeholder.svg
+  known_people_images:
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Adrian.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Andrea Sisfontes.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Ariana.png
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Avril_.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Bryam.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Carolina Arrieta_.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Cris Castro.png
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Cristofer Gerrero (1).jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Cristofer Gerrero (2).jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Cristofer Ulate.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Daniela.jpeg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Dilan Gómez_.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Einer Canales Campos.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Foto Lau.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Gabriel Sancho.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Iris Lopez .jpeg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Isabel_.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Marco Víquez.jpeg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Mery.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Nataly Mendoza Hernández.png
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Omar.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Sebastián.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Stephanie.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Valeria_.jpg
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Yariel.png
+    - mockup/images/Fotos tamaño pasaporte, (JPG)/Yassir.jpg
+
+content_rules:
+  language: es
+  tone:
+    - clear
+    - institutional
+    - student-centered
+    - useful
+    - direct
+    - not overly corporate
+    - not overly casual
+  traceability:
+    - EXISTENTE
+    - INFERIDO
+    - PROPUESTA DE MEJORA
+  placeholder_policy:
+    use_placeholders_when_missing: true
+    placeholder_style: useful and clearly marked
+    image_placeholder: use mockup/images/passport-placeholder.svg or an obvious typed placeholder block
+    text_placeholder: use concise neutral copy in Spanish
+  do_not_invent:
+    - do not invent pages without grounding
+    - do not invent unsupported images
+    - do not invent backend flows
+
+page_framework:
+  layers:
+    - institucional
+    - servicios
+    - representacion_estudiantil
+    - participacion
+    - transparencia
+    - noticias_eventos
+    - recursos_practicos
+  required_states:
+    - desktop
+    - tablet
+    - mobile
+  accessibility:
+    - contrast
+    - visible focus states
+    - keyboard friendly navigation
+    - descriptive labels
+    - readable hierarchy
+    - accessible forms
+
+copy_seed:
+  home_hero: '¡ATRÉVETE A VIVIR LA U MÁS ALLÁ DE LAS AULAS!'
+  feuna_intro: 'La FEUNA es el gobierno estudiantil de la UNA, una organización independiente y autónoma que representa al estudiantado.'
+  deuna_title: 'Directorio Estudiantil (DEUNA)'
+  deuna_period: 'Representantes estudiantiles de la FEUNA 2025-2027'
+  deuna_intro: 'El Directorio Estudiantil (DEUNA) es el órgano ejecutivo de la FEUNA, encargado de representar a la comunidad estudiantil en los espacios de toma de decisiones de la universidad.'
+  participation_label: 'Participación'
+  contact_note: 'Mantener contacto visible, pero subordinado a la lógica de participación y servicio.'
+
+known_interactions:
+  - mobile hamburger menu
+  - automatic hero slideshow
+  - news filter tags
+  - deuna commission filters
+  - smooth scrolling
+  - image fallback with initials or placeholder
+  - dynamic highlight panel for selected filter
+
+figma_guidance:
+  - build reusable components from the shared header/footer and key cards
+  - keep the FEUNA red and UNA blue as anchors
+  - preserve the current structural work instead of replacing it with a generic corporate design
+  - use placeholders only where the source content is incomplete
+  - standardize all colors, spacing, typography, and component states in one library
+  - keep image paths and asset names explicit when referenced

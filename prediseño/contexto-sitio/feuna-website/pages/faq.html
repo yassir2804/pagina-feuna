@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preguntas Frecuentes – FEUNA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .faq-category { margin-bottom: 48px; }
+    .faq-category-title {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 1.2rem; font-weight: 700; color: var(--azul);
+      margin-bottom: 16px; padding: 14px 18px;
+      background: var(--azul-10); border-radius: var(--radio);
+      border-left: 4px solid var(--azul);
+    }
+    .faq-category-title i { font-size: 1.1rem; }
+    .faq-search-highlight { background: #ffd700; padding: 0 2px; border-radius: 2px; }
+    .faq-item-hidden { display: none; }
+  </style>
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+<section class="breadcrumb-section">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+      <span class="separator">/</span>
+      <a href="tramites.html">Trámites</a>
+      <span class="separator">/</span>
+      <span class="current">Preguntas Frecuentes</span>
+    </nav>
+  </div>
+</section>
+
+<section class="page-header">
+  <div class="container">
+    <h1 class="page-title">Preguntas Frecuentes</h1>
+    <p class="page-subtitle">Respuestas rápidas a las dudas más comunes de la comunidad estudiantil</p>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+
+    <!-- Buscador -->
+    <div style="max-width:600px;margin:0 auto 48px">
+      <div class="search-bar">
+        <input type="text" class="search-input" id="faq-search" placeholder="Buscar en preguntas frecuentes...">
+        <button class="search-btn" onclick="searchFaq()"><i class="fas fa-search"></i></button>
+      </div>
+      <div id="search-results-msg" style="text-align:center;color:var(--gris);font-size:0.88rem;margin-top:8px"></div>
+    </div>
+
+    <!-- Categorías rápidas -->
+    <div class="filter-bar" style="justify-content:center;margin-bottom:40px">
+      <button class="filter-btn active" onclick="showCategory('all')">Todas</button>
+      <button class="filter-btn" onclick="showCategory('feuna')">Sobre FEUNA</button>
+      <button class="filter-btn" onclick="showCategory('becas')">Becas</button>
+      <button class="filter-btn" onclick="showCategory('tramites')">Trámites</button>
+      <button class="filter-btn" onclick="showCategory('servicios')">Servicios</button>
+      <button class="filter-btn" onclick="showCategory('representacion')">Representación</button>
+    </div>
+
+    <!-- FAQ: FEUNA -->
+    <div class="faq-category" data-cat="feuna">
+      <div class="faq-category-title"><i class="fas fa-university"></i> Sobre la FEUNA</div>
+      <div class="accordion" id="faq-feuna">
+        <div class="accordion-item"><div class="accordion-header">¿Qué es la FEUNA y para qué sirve? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">La Federación de Estudiantes de la Universidad Nacional (FEUNA) es el gobierno estudiantil de la UNA. Representa a todos los estudiantes, defiende sus derechos, gestiona servicios, y articula el movimiento estudiantil tanto dentro de la universidad como ante la sociedad costarricense.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Cómo me puedo involucrar en la FEUNA? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Podés participar de varias formas: uniéndote a una de las 7 comisiones del DEUNA (abiertas a todos los estudiantes), participando en tu asociación de carrera, como voluntario en proyectos, o candidatándote en las próximas elecciones estudiantiles. Visitá la sección <a href="participacion.html" style="color:var(--azul)">Participación</a> para más información.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿La FEUNA tiene alguna afiliación política o religiosa? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">No. El Estatuto Orgánico de la FEUNA establece que es una organización absolutamente pluralista, sin fines lucrativos, y no puede adherirse a ninguna organización política, filosófica, religiosa ni partido político nacional o extranjero.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Qué diferencia hay entre el DEUNA, el CAEUNA y el TEEUNA? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">El <strong>DEUNA</strong> es el órgano ejecutivo (como el gobierno), el <strong>CAEUNA</strong> es el órgano deliberativo (como el parlamento), y el <strong>TEEUNA</strong> es el órgano electoral. Los tres conforman la estructura democrática de la FEUNA.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Cuándo se realizan las elecciones del DEUNA? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Las elecciones del DEUNA se realizan cada dos años, normalmente durante el segundo semestre del año correspondiente. El TEEUNA publica la convocatoria oficial con anticipación. El próximo proceso electoral es en 2026.</div></div>
+      </div>
+    </div>
+
+    <!-- FAQ: Becas -->
+    <div class="faq-category" data-cat="becas">
+      <div class="faq-category-title"><i class="fas fa-dollar-sign"></i> Becas y Apoyo Socioeconómico</div>
+      <div class="accordion" id="faq-becas">
+        <div class="accordion-item"><div class="accordion-header">¿Qué es SIBEUNA y cómo aplico? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">SIBEUNA es el Sistema de Becas Estudiantiles de la UNA. Ofrece diferentes tipos de apoyo económico para estudiantes. Para aplicar debés completar el formulario en línea durante el período de solicitudes, adjuntar los documentos requeridos (declaración de renta familiar, matrícula activa, etc.) y esperar la resolución. Visitá la sección <a href="becas.html" style="color:var(--azul)">Becas SIBEUNA</a>.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Cuáles son los requisitos para solicitar beca socioeconómica? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Los requisitos principales son: estar matriculado activo en la UNA, presentar declaración de renta familiar o certificación de ingresos, completar el formulario SIBEUNA en los plazos establecidos, y cumplir con los criterios de rendimiento académico mínimo según el tipo de beca. Cada tipo de beca puede tener requisitos adicionales.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Puedo solicitar beca si soy de una zona rural o sede regional? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Sí. Existe la Beca Regional específicamente diseñada para estudiantes de zonas rurales o regiones alejadas. Además, los estudiantes de sedes regionales pueden acceder a todos los tipos de becas estándar. En algunos casos hay beneficios adicionales para residencia.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Cuándo abren el período de solicitud de becas? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">El período de solicitudes generalmente se abre al inicio de cada semestre o año académico. Las fechas exactas las publica la Oficina de Becas de la UNA y la FEUNA las divulga activamente en sus redes sociales y en el banner del sitio web. Suscribíte al newsletter de FEUNA para recibir alertas.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Qué hago si me rechazaron la beca? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Si te rechazaron la beca, tenés derecho a conocer los motivos y a apelar la resolución dentro del plazo establecido. Podés acudir a la FEUNA para orientación sobre el proceso de apelación o contactar directamente a la Oficina de Becas de la UNA. La Defensoría Estudiantil también puede acompañarte en este proceso.</div></div>
+      </div>
+    </div>
+
+    <!-- FAQ: Trámites -->
+    <div class="faq-category" data-cat="tramites">
+      <div class="faq-category-title"><i class="fas fa-file-invoice"></i> Trámites y Formularios</div>
+      <div class="accordion" id="faq-tramites">
+        <div class="accordion-item"><div class="accordion-header">¿Cómo solicito la exoneración de matrícula? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">La exoneración de matrícula se solicita a través del formulario disponible en la sección <a href="tramites.html" style="color:var(--azul)">Trámites</a>. Debés adjuntar la documentación que justifique la solicitud. El DEUNA resuelve en 5 a 10 días hábiles.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Qué es una e-petición y cómo funciona? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Una e-petición es un mecanismo formal para que cualquier estudiante presente propuestas, solicitudes o reclamos al DEUNA. Se envía digitalmente, se le asigna un número de seguimiento, y el DEUNA tiene la obligación de responderla. Podés hacerlo en la sección <a href="epeticiones.html" style="color:var(--azul)">E-Peticiones</a>.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Los trámites de FEUNA tienen costo? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">No. Todos los servicios y trámites gestionados directamente por la FEUNA son completamente gratuitos para los estudiantes activos de la UNA.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Cómo reservo un espacio para una actividad estudiantil? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Completá el formulario de reserva en la sección <a href="reservas.html" style="color:var(--azul)">Reserva de Espacios</a>. Indicá fecha, hora, espacio deseado y descripción de la actividad. La solicitud se resuelve en 48 horas hábiles.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Dónde encuentro las actas y documentos oficiales de la FEUNA? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Todos los documentos oficiales (actas, acuerdos, informes, presupuestos) están disponibles en el <a href="archivo.html" style="color:var(--azul)">Archivo Digital</a>. Son de acceso público y gratuito.</div></div>
+      </div>
+    </div>
+
+    <!-- FAQ: Servicios -->
+    <div class="faq-category" data-cat="servicios">
+      <div class="faq-category-title"><i class="fas fa-hands-helping"></i> Servicios UNA</div>
+      <div class="accordion" id="faq-servicios">
+        <div class="accordion-item"><div class="accordion-header">¿Cómo activo mi cuenta de correo @una.cr? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">El correo @una.cr se activa automáticamente al matricularte. Tu usuario inicial es el número de carné. Si tenés problemas, contactá el Centro de Informática de la UNA. En la sección <a href="sistemas.html" style="color:var(--azul)">Sistemas UNA</a> encontrás todos los pasos.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Cómo accedo a la matrícula por SIGA? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">SIGA es el sistema de gestión académica de la UNA. Podés acceder con tu usuario y contraseña institucional. Si es tu primer ingreso, la cuenta se activa después de que Registro formalice tu expediente. En <a href="sistemas.html" style="color:var(--azul)">Sistemas UNA</a> encontrás el enlace directo.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Qué servicios de salud están disponibles para estudiantes? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">La UNA ofrece servicios de salud a través de la clínica VIDAE: atención médica general, odontología, psicología y emergencias. También hay programas de vida saludable y deportes. En <a href="salud.html" style="color:var(--azul)">Salud y Bienestar</a> encontrás toda la información.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Cómo accedo a las bases de datos académicas? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Con tu cuenta @una.cr tenés acceso gratuito a bases de datos como JSTOR, EBSCO, Scopus y Web of Science a través de SIDUNA. Podés acceder desde el campus o desde casa usando la VPN institucional.</div></div>
+      </div>
+    </div>
+
+    <!-- FAQ: Representación -->
+    <div class="faq-category" data-cat="representacion">
+      <div class="faq-category-title"><i class="fas fa-users"></i> Representación Estudiantil</div>
+      <div class="accordion" id="faq-representacion">
+        <div class="accordion-item"><div class="accordion-header">¿Cómo sé quién me representa en el Consejo Universitario? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Los representantes estudiantiles ante el CU son parte del DEUNA. Podés ver sus nombres, fotos y contactos en la sección <a href="representacion-cu.html" style="color:var(--azul)">CU y CONSACA</a>. Son elegidos cada dos años junto con el resto del DEUNA.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Cómo puedo candidatarme para representante estudiantil? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Para candidatarte debés esperar la convocatoria oficial del TEEUNA para el proceso electoral correspondiente. Los requisitos incluyen estar matriculado activo, tener buen rendimiento académico y cumplir los requisitos del Reglamento Electoral. El TEEUNA publica toda la información en sus canales oficiales.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Qué hace la asociación de mi carrera? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Las asociaciones estudiantiles representan a los estudiantes de cada carrera. Organizan actividades académicas, culturales y sociales, llevan las demandas estudiantiles al CAEUNA y sirven como canal de comunicación entre los estudiantes y las autoridades académicas. Encontrás tu asociación en <a href="asociaciones.html" style="color:var(--azul)">Asociaciones Estudiantiles</a>.</div></div>
+        <div class="accordion-item"><div class="accordion-header">¿Qué hago si tengo una propuesta para mejorar la universidad? <i class="fas fa-chevron-down arrow"></i></div><div class="accordion-body">Podés presentar tu propuesta a través de una <a href="epeticiones.html" style="color:var(--azul)">e-petición</a> al DEUNA, llevarla a través de la asociación de tu carrera al CAEUNA, o participar directamente en las comisiones del DEUNA donde se discuten los proyectos del Plan de Trabajo.</div></div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="background:var(--azul);border-radius:var(--radio);padding:40px;text-align:center;margin-top:16px">
+      <h3 style="color:var(--blanco);font-size:1.4rem;margin-bottom:10px">¿No encontraste tu respuesta?</h3>
+      <p style="color:rgba(255,255,255,0.85);margin-bottom:24px">Contactanos directamente y te respondemos lo antes posible.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="contacto.html" class="btn-white"><i class="fas fa-envelope"></i> Escribinos</a>
+        <a href="epeticiones.html" class="btn-white"><i class="fas fa-paper-plane"></i> Enviar petición</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="../js/main.js"></script>
+<script>
+  function searchFaq() {
+    const query = document.getElementById('faq-search').value.toLowerCase().trim();
+    const msg = document.getElementById('search-results-msg');
+    if (!query) { msg.textContent = ''; document.querySelectorAll('.faq-category').forEach(c => c.style.display = ''); return; }
+    let found = 0;
+    document.querySelectorAll('.accordion-item').forEach(item => {
+      const text = item.textContent.toLowerCase();
+      const show = text.includes(query);
+      item.style.display = show ? '' : 'none';
+      if (show) found++;
+    });
+    document.querySelectorAll('.faq-category').forEach(cat => {
+      const visible = [...cat.querySelectorAll('.accordion-item')].some(i => i.style.display !== 'none');
+      cat.style.display = visible ? '' : 'none';
+    });
+    msg.textContent = found ? `${found} resultado(s) para "${query}"` : `No se encontraron resultados para "${query}"`;
+  }
+  document.getElementById('faq-search')?.addEventListener('keyup', e => { if (e.key === 'Enter') searchFaq(); });
+
+  function showCategory(cat) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.accordion-item').forEach(i => i.style.display = '');
+    document.getElementById('faq-search').value = '';
+    document.getElementById('search-results-msg').textContent = '';
+    if (cat === 'all') { document.querySelectorAll('.faq-category').forEach(c => c.style.display = ''); return; }
+    document.querySelectorAll('.faq-category').forEach(c => {
+      c.style.display = c.dataset.cat === cat ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: ${{ secrets.CF_PROJECT_NAME }}
+          directory: ./dist
+
+# Notes:
+# - Create a Cloudflare Pages project named exactly as the value you put in the
+#   GitHub secret `CF_PROJECT_NAME`, or connect the repo through the Cloudflare
+#   dashboard and use the project name that Cloudflare assigns.
+# - Set the following GitHub repository secrets: `CF_API_TOKEN`, `CF_ACCOUNT_ID`,
+#   `CF_PROJECT_NAME`.
+# - The API token should have Pages:Edit (and appropriate account access).

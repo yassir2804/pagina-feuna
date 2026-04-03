@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noticias y Eventos – FEUNA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div id="header-placeholder"></div>
+<section class="breadcrumb-section"><div class="container"><nav class="breadcrumb"><a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span class="separator">/</span><span class="current">Noticias</span></nav></div></section>
+<section class="page-header"><div class="container"><h1 class="page-title">Noticias y Eventos</h1><p class="page-subtitle">Mantenete informado sobre el movimiento estudiantil</p></div></section>
+
+<section class="content-section noticias-page">
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" class="search-input" placeholder="Buscar noticias...">
+      <button class="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Todas</button>
+      <button class="filter-btn" data-filter="regionalizacion">🌍 Regionalización</button>
+      <button class="filter-btn" data-filter="salud">🏥 Salud</button>
+      <button class="filter-btn" data-filter="cultura">🎨 Cultura</button>
+      <button class="filter-btn" data-filter="diversidad">🌈 Diversidad</button>
+      <button class="filter-btn" data-filter="comunicacion">📢 Comunicación</button>
+      <button class="filter-btn" data-filter="ambiente">🌱 Medio Ambiente</button>
+      <button class="filter-btn" data-filter="digital">💻 Digital</button>
+      <button class="filter-btn" data-filter="vinculacion">🤝 Vinculación</button>
+      <button class="filter-btn" data-filter="educacion">📚 Educación Pública</button>
+    </div>
+
+    <div class="noticias-grid">
+      <article class="noticia-card" data-category="regionalizacion"><div class="noticia-image" style="background-color:#034991;"></div><div class="noticia-content"><span class="noticia-tag"><i class="fas fa-map-marked-alt"></i> Regionalización</span><h3 class="noticia-title">FEUNA visita sede regional Brunca para fortalecer la participación estudiantil</h3><p class="noticia-date"><i class="far fa-calendar-alt"></i> 20 de noviembre, 2025</p><a href="#" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a></div></article>
+
+      <article class="noticia-card" data-category="educacion"><div class="noticia-image" style="background-color:#bb1f1f;"></div><div class="noticia-content"><span class="noticia-tag"><i class="fas fa-graduation-cap"></i> Educación Pública</span><h3 class="noticia-title">Estudiantes UNA marchan por defensa del FEES 2026</h3><p class="noticia-date"><i class="far fa-calendar-alt"></i> 19 de noviembre, 2025</p><a href="#" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a></div></article>
+
+      <article class="noticia-card" data-category="cultura"><div class="noticia-image" style="background-color:#666;"></div><div class="noticia-content"><span class="noticia-tag"><i class="fas fa-palette"></i> Cultura</span><h3 class="noticia-title">Festival Cultural FEUNA 2025: arte, música y resistencia estudiantil</h3><p class="noticia-date"><i class="far fa-calendar-alt"></i> 18 de noviembre, 2025</p><a href="#" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a></div></article>
+
+      <article class="noticia-card" data-category="diversidad"><div class="noticia-image" style="background-color:#034991;"></div><div class="noticia-content"><span class="noticia-tag"><i class="fas fa-rainbow"></i> Diversidad</span><h3 class="noticia-title">Taller de derechos LGBTQ+ en el campus Omar Dengo</h3><p class="noticia-date"><i class="far fa-calendar-alt"></i> 15 de noviembre, 2025</p><a href="#" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a></div></article>
+
+      <article class="noticia-card" data-category="ambiente"><div class="noticia-image" style="background-color:#034991;"></div><div class="noticia-content"><span class="noticia-tag"><i class="fas fa-leaf"></i> Medio Ambiente</span><h3 class="noticia-title">FEUNA lanza campaña de reciclaje en todas las sedes universitarias</h3><p class="noticia-date"><i class="far fa-calendar-alt"></i> 12 de noviembre, 2025</p><a href="#" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a></div></article>
+
+      <article class="noticia-card" data-category="digital"><div class="noticia-image" style="background-color:#bb1f1f;"></div><div class="noticia-content"><span class="noticia-tag"><i class="fas fa-laptop-code"></i> Digital</span><h3 class="noticia-title">Nuevo portal digital de trámites reduce tiempo de gestión para estudiantes</h3><p class="noticia-date"><i class="far fa-calendar-alt"></i> 10 de noviembre, 2025</p><a href="#" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a></div></article>
+
+      <article class="noticia-card" data-category="salud"><div class="noticia-image" style="background-color:#666;"></div><div class="noticia-content"><span class="noticia-tag"><i class="fas fa-heartbeat"></i> Salud</span><h3 class="noticia-title">Jornada de salud mental en el campus para estudiantes de primer ingreso</h3><p class="noticia-date"><i class="far fa-calendar-alt"></i> 08 de noviembre, 2025</p><a href="#" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a></div></article>
+
+      <article class="noticia-card" data-category="vinculacion"><div class="noticia-image" style="background-color:#034991;"></div><div class="noticia-content"><span class="noticia-tag"><i class="fas fa-hands-helping"></i> Vinculación</span><h3 class="noticia-title">Estudiantes de la UNA apoyan a comunidades afectadas en Limón</h3><p class="noticia-date"><i class="far fa-calendar-alt"></i> 05 de noviembre, 2025</p><a href="#" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a></div></article>
+
+      <article class="noticia-card" data-category="comunicacion"><div class="noticia-image" style="background-color:#bb1f1f;"></div><div class="noticia-content"><span class="noticia-tag"><i class="fas fa-bullhorn"></i> Comunicación</span><h3 class="noticia-title">Asamblea General FEUNA aprueba nuevos proyectos para el semestre</h3><p class="noticia-date"><i class="far fa-calendar-alt"></i> 01 de noviembre, 2025</p><a href="#" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a></div></article>
+    </div>
+
+    <div style="display:flex;justify-content:center;gap:8px;margin-top:40px">
+      <button class="filter-btn active">1</button>
+      <button class="filter-btn">2</button>
+      <button class="filter-btn">3</button>
+      <button class="filter-btn">Siguiente <i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+</section>
+<div id="footer-placeholder"></div>
+<script src="../js/main.js"></script>
+</body>
+</html>

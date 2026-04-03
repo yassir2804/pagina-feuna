@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEUNA - Directorio Estudiantil | FEUNA</title>
+    
+    <!-- Google Fonts - Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+    /* DEUNA — local improvements for filter bar and cards */
+    .filter-bar{align-items:center;margin:0 0 12px 0;padding:6px 0}
+    .filter-bar{display:flex;flex-wrap:wrap;gap:10px}
+    .filter-btn{border:1px solid var(--azul, #0b57d0);background:transparent;color:var(--azul, #0b57d0);padding:6px 12px;border-radius:999px;font-weight:600;cursor:pointer;transition:all .18s ease;box-shadow:none}
+    .filter-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(11,87,208,.08)}
+    .filter-btn.active{background:var(--azul, #0b57d0);color:#fff;border-color:transparent}
+    .filter-explanation{font-size:0.95rem;margin-top:6px;color:var(--texto-sec,#666)}
+    .members-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:8px}
+    .member-card{background:#fff;border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;text-align:center;border:1px solid rgba(0,0,0,0.04);box-shadow:0 6px 18px rgba(20,20,30,0.04)}
+    .member-photo{width:96px;height:120px;border-radius:6px;overflow:hidden;margin-bottom:10px;background:#f6f7f8;display:block;box-shadow:none;border:none !important;box-shadow:none !important}
+    .member-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .member-name{font-size:1rem;margin:6px 0 2px;color:var(--texto,#111);font-weight:700}
+    .member-position{font-size:0.9rem;color:var(--texto-sec,#666);margin:0}
+    .info-cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:14px}
+    .info-card{padding:16px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(0,0,0,0.03)}
+    .highlight-card{padding:14px;border-radius:10px;background:linear-gradient(180deg,#f7fbff,#ffffff);border:1px solid rgba(11,87,208,0.08);box-shadow:0 8px 24px rgba(11,87,208,0.04);}
+    .highlight-card h4{margin:0 0 8px;font-size:1rem;color:var(--azul,#0b57d0);font-weight:700}
+    .highlight-card p{margin:0 0 8px;color:var(--texto-sec,#666)}
+    .highlight-card ul{margin:6px 0 0;padding-left:18px;color:var(--texto-sec,#666)}
+    @media (max-width:560px){.filter-bar{overflow:auto;padding-bottom:6px} .filter-btn{flex:0 0 auto}}
+    </style>
+</head>
+<body>
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder"></div>
+
+    <!-- BREADCRUMB -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+                <span class="separator">/</span>
+                <a href="#">Representación</a>
+                <span class="separator">/</span>
+                <span class="current">DEUNA</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Directorio Estudiantil (DEUNA)</h1>
+            <p class="page-subtitle">Representantes estudiantiles de la FEUNA 2025-2027</p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <section class="content-section">
+        <div class="container">
+            <!-- Introducción -->
+            <div class="intro-block">
+                <p id="intro-text" class="intro-text">
+                    El <strong>Directorio Estudiantil (DEUNA)</strong> es el órgano ejecutivo de la FEUNA, responsable de dirigir y coordinar la representación estudiantil y ejecutar las decisiones de la Federación.
+                </p>
+            </div>
+
+            <!-- INTEGRANTES DEL DEUNA -->
+            <div class="members-section">
+                <h2 class="section-title">Integrantes DEUNA 2025-2027</h2>
+
+                <div class="filter-bar" style="margin-bottom:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+                    <button class="filter-btn active" data-filter="all" data-target="members">Todos</button>
+                    <button class="filter-btn" data-filter="directorio" data-target="members">Presidencia</button>
+                    <button class="filter-btn" data-filter="secretaria" data-target="members">Secretaría General</button>
+                    <button class="filter-btn" data-filter="finanzas" data-target="members">Finanzas</button>
+                    <button class="filter-btn" data-filter="ecologicos" data-target="members">Asuntos Ecológicos</button>
+                    <button class="filter-btn" data-filter="comunicacion" data-target="members">Comunicación</button>
+                    <button class="filter-btn" data-filter="asuntos-universitarios" data-target="members">Asuntos Universitarios</button>
+                    <button class="filter-btn" data-filter="regionales" data-target="members">Asuntos Regionales</button>
+                    <button class="filter-btn" data-filter="cultura" data-target="members">Cultura y Deporte</button>
+                    <button class="filter-btn" data-filter="diversidad" data-target="members">Diversidad y Género</button>
+                    <button class="filter-btn" data-filter="politica" data-target="members">Política</button>
+                    <button class="filter-btn" data-filter="consaca" data-target="members">CONSACA</button>
+                    <button class="filter-btn" data-filter="cu" data-target="members">Consejo Universitario</button>
+                </div>
+
+                                <div style="display:flex;flex-direction:column;gap:10px">
+                                    <div id="filter-highlight" class="highlight-card" style="display:none"></div>
+                                </div>
+
+                <h3 class="sr-only">Directorio</h3>
+                <div class="members-grid" id="members">
+
+                    <div class="member-card" data-category="directorio">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Marco%20V%C3%ADquez.jpeg" alt="Marco Viquez Fallas" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>MV</div>'"></div>
+                        <h3 class="member-name">Marco Viquez Fallas</h3>
+                        <p class="member-position">Presidencia</p>
+                    </div>
+
+                    <div class="member-card" data-category="secretaria">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Daniela.jpeg" alt="Daniela Chaves Matamoros" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>DC</div>'"></div>
+                        <h3 class="member-name">Daniela Chaves Matamoros</h3>
+                        <p class="member-position">Secretaría General</p>
+                    </div>
+
+                    <div class="member-card" data-category="finanzas">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Dilan%20G%C3%B3mez_.jpg" alt="Dilan Gómez Arias" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>DG</div>'"></div>
+                        <h3 class="member-name">Dilan Gómez Arias</h3>
+                        <p class="member-position">Comisión de Finanzas</p>
+                    </div>
+
+                    <div class="member-card" data-category="finanzas">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Einer%20Canales%20Campos.jpg" alt="Einer Canales Campos" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>EC</div>'"></div>
+                        <h3 class="member-name">Einer Canales Campos</h3>
+                        <p class="member-position">Comisión de Finanzas</p>
+                    </div>
+
+                    <div class="member-card" data-category="asuntos-universitarios">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Cristofer%20Guerrero.jpg" alt="Cristofer Guerrero Lepiz" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>CG</div>'"></div>
+                        <h3 class="member-name">Cristofer Guerrero Lepiz</h3>
+                        <p class="member-position">Comisión de Asuntos Universitarios</p>
+                    </div>
+
+                    <div class="member-card" data-category="politica">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Avril_.jpg" alt="Avril Flores Chaves" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>AF</div>'"></div>
+                        <h3 class="member-name">Avril Flores Chaves</h3>
+                        <p class="member-position">Comisión de Asuntos Nacionales e Internacionales</p>
+                    </div>
+
+                    <div class="member-card" data-category="ecologicos">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Mery.jpg" alt="Mery Ann Fonseca López" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>MF</div>'"></div>
+                        <h3 class="member-name">Mery Ann Fonseca López</h3>
+                        <p class="member-position">Comisión de Asuntos Ecológicos</p>
+                    </div>
+
+                    <div class="member-card" data-category="diversidad">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Andrea%20Sisfontes.jpg" alt="Andrea Sisfontes Sandí" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>AS</div>'"></div>
+                        <h3 class="member-name">Andrea Sisfontes Sandí</h3>
+                        <p class="member-position">Comisión de Diversidad, Equidad y Género</p>
+                    </div>
+
+                    <div class="member-card" data-category="regionales">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Yariel.png" alt="Yariel Miranda Chaves" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>YM</div>'"></div>
+                        <h3 class="member-name">Yariel Miranda Chaves</h3>
+                        <p class="member-position">Comisión de Asuntos Regionales</p>
+                    </div>
+
+                    <div class="member-card" data-category="cultura">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Cris%20Castro.png" alt="Cristofer Castro Fallas" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>CC</div>'"></div>
+                        <h3 class="member-name">Cristofer Castro Fallas</h3>
+                        <p class="member-position">Comisión de Cultura, Recreación y Deporte</p>
+                    </div>
+
+                    <div class="member-card" data-category="cultura">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Isabel_.jpg" alt="Isabel Sanchez Lizano" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>IS</div>'"></div>
+                        <h3 class="member-name">Isabel Sanchez Lizano</h3>
+                        <p class="member-position">Comisión de Cultura, Recreación y Deporte</p>
+                    </div>
+
+                    <div class="member-card" data-category="comunicacion">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Gabriel%20Sancho.jpg" alt="Gabriel Sancho Quintanilla" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>GS</div>'"></div>
+                        <h3 class="member-name">Gabriel Sancho Quintanilla</h3>
+                        <p class="member-position">Oficina de Comunicación e Información</p>
+                    </div>
+
+                    <div class="member-card" data-category="comunicacion">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Stephanie.jpg" alt="Stephanie Ruiz Matamoros" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>SR</div>'"></div>
+                        <h3 class="member-name">Stephanie Ruiz Matamoros</h3>
+                        <p class="member-position">Oficina de Comunicación e Información</p>
+                    </div>
+
+                    <div class="member-card" data-category="cu">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Nataly%20Mendoza%20Hern%C3%A1ndez.png" alt="Nataly Mendoza Hernández" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>NM</div>'"></div>
+                        <h3 class="member-name">Nataly Mendoza Hernández</h3>
+                        <p class="member-position">Consejo Universitario (Propiedad 1°)</p>
+                    </div>
+
+                    <div class="member-card" data-category="cu">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Omar.jpg" alt="Omar Morales Torres" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>OM</div>'"></div>
+                        <h3 class="member-name">Omar Morales Torres</h3>
+                        <p class="member-position">Consejo Universitario (Suplencia 1°)</p>
+                    </div>
+
+                    <div class="member-card" data-category="cu">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Cristofer%20Ulate.jpg" alt="Christopher Ulate Orozco" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>CU</div>'"></div>
+                        <h3 class="member-name">Christopher Ulate Orozco</h3>
+                        <p class="member-position">Consejo Universitario (Propiedad 2°)</p>
+                    </div>
+
+                    <div class="member-card" data-category="cu">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Iris%20Lopez%20.jpeg" alt="Iris Lopez Cruz" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>IL</div>'"></div>
+                        <h3 class="member-name">Iris Lopez Cruz</h3>
+                        <p class="member-position">Consejo Universitario (Suplencia 2°)</p>
+                    </div>
+
+                    <div class="member-card" data-category="consaca">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Foto%20Lau.jpg" alt="Laura Flores Barrantes" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>LF</div>'"></div>
+                        <h3 class="member-name">Laura Flores Barrantes</h3>
+                        <p class="member-position">CONSACA (Propiedad 1°)</p>
+                    </div>
+
+                    <div class="member-card" data-category="consaca">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Sebasti%C3%A1n.jpg" alt="Sebastián Sánchez Padilla" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>SS</div>'"></div>
+                        <h3 class="member-name">Sebastián Sánchez Padilla</h3>
+                        <p class="member-position">CONSACA (Suplencia 1°)</p>
+                    </div>
+
+                    <div class="member-card" data-category="consaca">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Yassir.jpg" alt="Yassir Jiménez Carballo" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>YJ</div>'"></div>
+                        <h3 class="member-name">Yassir Jiménez Carballo</h3>
+                        <p class="member-position">CONSACA (Propiedad 2°)</p>
+                    </div>
+
+                    <div class="member-card" data-category="consaca">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Ariana.png" alt="Ariana Esquivel Flores" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>AE</div>'"></div>
+                        <h3 class="member-name">Ariana Esquivel Flores</h3>
+                        <p class="member-position">CONSACA (Suplencia 2°)</p>
+                    </div>
+
+                    <div class="member-card" data-category="consaca">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Valeria_.jpg" alt="Valeria Espinoza Aguilar" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>VE</div>'"></div>
+                        <h3 class="member-name">Valeria Espinoza Aguilar</h3>
+                        <p class="member-position">CONSACA (Propiedad 3°)</p>
+                    </div>
+
+                    <div class="member-card" data-category="consaca">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Pablo Carballo.jpg" alt="Pablo Carballo Chaves" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>PC</div>'"></div>
+                        <h3 class="member-name">Pablo Carballo Chaves</h3>
+                        <p class="member-position">CONSACA (Suplencia 3°)</p>
+                    </div>
+
+                    <div class="member-card" data-category="consaca">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Bryam.jpg" alt="Bryam Bejarano Rucavado" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>BB</div>'"></div>
+                        <h3 class="member-name">Bryam Bejarano Rucavado</h3>
+                        <p class="member-position">CONSACA (Propiedad 4°)</p>
+                    </div>
+
+                    <div class="member-card" data-category="consaca">
+                        <div class="member-photo"><img src="images/Fotos%20tamaño%20pasaporte,%20(JPG)/Carolina%20Arrieta_.jpg" alt="Carolina Arrieta Angulo" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:1.2rem;color:#333\'>CA</div>'"></div>
+                        <h3 class="member-name">Carolina Arrieta Angulo</h3>
+                        <p class="member-position">CONSACA (Suplencia 4°)</p>
+                    </div>
+                </div>
+                <!-- La información de Secretaría General se muestra dinámicamente en el recuadro destacado al seleccionar el filtro -->
+            </div>
+
+            <!-- Información adicional -->
+            <div class="info-section">
+                <div class="info-cards-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>Competencias del DEUNA</h3>
+                        <p>Representar a la comunidad estudiantil, atender y ejecutar los acuerdos del CAEUNA, Congreso de Estudiantes y Asamblea General.</p>
+                        <a href="reglamentos.html" class="btn-secondary">Ver reglamento</a>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-vote-yea"></i>
+                        </div>
+                        <h3>Modalidad de Elección</h3>
+                        <p>Electos mediante votación universal, directa y secreta por la comunidad estudiantil. Período: 2 años.</p>
+                        <a href="teeuna.html" class="btn-secondary">Proceso electoral</a>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Contacto DEUNA</h3>
+                        <p>¿Tenés consultas o necesitás contactar al Directorio Estudiantil?</p>
+                        <a href="contacto.html" class="btn-secondary">Contactar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+
+        <!-- Scripts -->
+        <script src="js/main.js"></script>
+        <script>
+        // DEUNA: enhanced filter with dynamic explanation
+        (function(){
+            const descriptions = {
+                all: 'Directorio completo del DEUNA. Aquí aparecen todos los integrantes y sus cargos.',
+                directorio: 'Presidencia',
+                finanzas: 'Comisión de Finanzas: gestión presupuestaria y transparencia financiera de FEUNA.',
+                ecologicos: 'Comisión de Asuntos Ecológicos: defensa del medio ambiente y prácticas sustentables en el campus.',
+                comunicacion: 'Oficina de Comunicación e Información: comunicación institucional y difusión.',
+                'asuntos-universitarios': 'Comisión de Asuntos Universitarios: defensa de la educación pública y vinculación con la sociedad.',
+                regionales: 'Comisión de Asuntos Regionales: representación y apoyo a sedes regionales y estudiantes itinerantes.',
+                cultura: 'Comisión de Cultura, Recreación y Deporte: actividades culturales, artísticas y deportivas.',
+                diversidad: 'Comisión de Diversidad, Equidad y Género: apoyo a poblaciones vulnerabilizadas e igualdad de derechos.',
+                politica: 'Comisión de Política Nacional e Internacional: coordinación y acción política estudiantil.',
+                consaca: 'Representantes ante CONSACA.',
+                cu: 'Representantes ante el Consejo Universitario.'
+            };
+
+            const meta = {
+                directorio: {
+                    title: 'Presidencia',
+                    text: 'Presidencia: responsable de la dirección operativa del DEUNA.',
+                    functions: ['Convocar y dirigir reuniones del DEUNA','Representar institucionalmente a FEUNA','Coordinar la ejecución del plan de trabajo']
+                },
+                secretaria: {
+                    title: 'Secretaría General',
+                    text: 'La Secretaría General organiza el trabajo interno de la FEUNA y asegura el seguimiento de acuerdos y procesos.',
+                    functions: ['Dar seguimiento a acuerdos y tareas del Directorio','Apoyar la organización y el funcionamiento interno','Mantener control de actas, convocatorias y comunicación institucional','Representar a la FEUNA en instancias universitarias cuando corresponda']
+                },
+                finanzas: {
+                    title: 'Finanzas',
+                    text: 'Gestión presupuestaria, control y transparencia de recursos estudiantiles.',
+                    functions: ['Elaborar y supervisar presupuestos','Rendir cuentas ante FEUNA','Proponer criterios de asignación de fondos']
+                },
+                ecologicos: {
+                    title: 'Asuntos Ecológicos',
+                    text: 'Promover prácticas sustentables y campañas ambientales en el campus.',
+                    functions: ['Diseñar campañas ambientales','Promover reciclaje y ahorro energético','Coordinar actividades de conservación']
+                },
+                comunicacion: {
+                    title: 'Comunicación',
+                    text: 'Oficina encargada de la difusión institucional y la comunicación con la comunidad.',
+                    functions: ['Gestionar redes y boletines','Coordinar comunicaciones oficiales','Apoyar en la difusión de actividades']
+                },
+                'asuntos-universitarios': {
+                    title: 'Asuntos Universitarios',
+                    text: 'Defensa de la educación pública y propuestas académicas para la comunidad estudiantil.',
+                    functions: ['Formular propuestas académicas','Representar demandas estudiantiles','Vincular con actores académicos']
+                },
+                regionales: {
+                    title: 'Asuntos Regionales',
+                    text: 'Atención y representación de estudiantes en sedes y regiones.',
+                    functions: ['Canalizar demandas regionales','Coordinar presencia en sedes','Facilitar participación estudiantil local']
+                },
+                cultura: {
+                    title: 'Cultura y Deporte',
+                    text: 'Organización de actividades culturales, artísticas y deportivas.',
+                    functions: ['Organizar eventos culturales','Fomentar actividades deportivas','Apoyar grupos artísticos estudiantiles']
+                },
+                diversidad: {
+                    title: 'Diversidad, Equidad y Género',
+                    text: 'Promover políticas de igualdad y protección de grupos vulnerabilizados.',
+                    functions: ['Diseñar políticas de inclusión','Atender situaciones de violencia de género','Promover formación en derechos']
+                },
+                politica: {
+                    title: 'Política Nacional e Internacional',
+                    text: 'Coordinación de la acción política y la representación estudiantil.',
+                    functions: ['Representar a FEUNA en espacios políticos','Coordinar campañas y alianzas','Monitorear asuntos públicos relevantes']
+                },
+                consaca: {
+                    title: 'CONSACA',
+                    text: 'Representantes ante CONSACA.',
+                    functions: ['Participar en reuniones de CONSACA','Defender acuerdos estudiantiles','Informar sobre decisiones y procesos']
+                },
+                cu: {
+                    title: 'Consejo Universitario',
+                    text: 'Representantes ante el Consejo Universitario.',
+                    functions: ['Defender intereses estudiantiles en el CU','Presentar propuestas y mociones','Reportar decisiones al estudiantado']
+                }
+            };
+
+            function applyFilter(container, filter){
+                const items = container.querySelectorAll('.member-card');
+                items.forEach(item=>{
+                    if(filter==='all'){
+                        item.style.display='';
+                    } else {
+                        const cat = item.dataset.category || '';
+                        item.style.display = (cat === filter) ? '' : 'none';
+                    }
+                });
+            }
+
+            function initDeunaFilters(){
+                const buttons = document.querySelectorAll('.filter-btn');
+                const highlightEl = document.getElementById('filter-highlight');
+                if(!buttons.length) return;
+                buttons.forEach(btn=>btn.addEventListener('click', function(){
+                    const targetId = this.dataset.target;
+                    const filter = this.dataset.filter;
+                    // toggle active class
+                    buttons.forEach(b=>b.classList.remove('active'));
+                    this.classList.add('active');
+                    const container = document.getElementById(targetId);
+                    if(container) applyFilter(container, filter);
+                    if(highlightEl){
+                        const m = meta[filter];
+                        if(m){
+                            let html = `<h4>${m.title}</h4><p>${m.text}</p>`;
+                            if(Array.isArray(m.functions) && m.functions.length){
+                                html += '<ul>' + m.functions.map(f=>`<li>${f}</li>`).join('') + '</ul>';
+                            }
+                            highlightEl.innerHTML = html;
+                            highlightEl.style.display = '';
+                        } else {
+                            highlightEl.style.display = 'none';
+                            highlightEl.innerHTML = '';
+                        }
+                    }
+                }));
+
+                // set initial state: hide highlight when 'all'
+                const active = document.querySelector('.filter-btn.active');
+                const initial = active ? active.dataset.filter : 'all';
+                const container = document.getElementById(active ? active.dataset.target : 'members');
+                if(container) applyFilter(container, initial);
+                if(highlightEl){
+                    if(initial === 'all') { highlightEl.style.display = 'none'; }
+                    else {
+                        const m = meta[initial];
+                        if(m){
+                            let html = `<h4>${m.title}</h4><p>${m.text}</p>`;
+                            if(Array.isArray(m.functions) && m.functions.length) html += '<ul>' + m.functions.map(f=>`<li>${f}</li>`).join('') + '</ul>';
+                            highlightEl.innerHTML = html; highlightEl.style.display = '';
+                        }
+                    }
+                }
+            }
+
+            if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', initDeunaFilters);
+            else initDeunaFilters();
+        })();
+        </script>
+</body>
+</html>
