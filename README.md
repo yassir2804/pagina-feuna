@@ -1,132 +1,183 @@
+# FEUNA Web - Documento Tecnico Explicativo (presentacion para DTIC)
 
-# FEUNA Web - Frontend Oficial
+## 1. Contexto del proyecto
 
-Sitio web de la Federacion de Estudiantes de la Universidad Nacional (FEUNA), implementado con React + Vite y alineado con un proceso de diseno de la mano con Figma.
+Este repositorio contiene el frontend oficial del sitio web de FEUNA.
 
-## Objetivo del proyecto
+La meta principal fue pasar de una etapa de mockups y material de prediseno a una implementacion web institucional:
 
-Este repositorio busca dos metas en paralelo:
+- mantenible,
+- ordenada,
+- y desplegable automaticamente.
 
-1. Consolidar una base web moderna, mantenible y desplegable.
-2. Convertir el trabajo de prediseno y documentacion en una implementacion real por fases.
+Es un proyecto interno FEUNA/DTIC. No esta planteado como iniciativa open source publica.
 
-El foco no es solo "maquetar", sino traducir decisiones de arquitectura de informacion, contenido y experiencia en un producto final institucional.
+## 2. Que se hizo (en terminos de gestion)
 
-## Estado actual
+Durante esta etapa se completaron cuatro frentes clave:
 
-- Build local funcionando con `npm run build`.
-- Despliegue preparado en Cloudflare Pages por GitHub Actions.
-- Estructura legacy movida a `archive/` para no perder contexto historico.
-- Fotos de pasaporte DEUNA migradas a una ruta profesional en `public/images/fotos-pasaporte/deuna/`.
+1. Base tecnica moderna.
+2. Estandarizacion de navegacion y rutas internas.
+3. Automatizacion de despliegue.
+4. Orden y trazabilidad del material historico.
 
-## Estructura actual del repositorio
+Resultado: hoy existe una base lista para crecer por fases (contenido, secciones y mejoras UX) sin perder gobernanza tecnica.
+
+## 3. Stack tecnologico explicado para audiencias no tecnicas
+
+### Frontend
+
+- React
+  - Se usa para construir la interfaz por componentes reutilizables (header, footer, paginas, secciones).
+  - Beneficio para DTIC: facilita mantenimiento y escalabilidad.
+
+- TypeScript
+  - Es JavaScript con tipado.
+  - Beneficio para DTIC: reduce errores comunes y mejora la calidad del codigo.
+
+- Vite
+  - Herramienta de desarrollo y compilacion.
+  - Beneficio para DTIC: desarrollo rapido y build de produccion eficiente.
+
+### Estilos y experiencia visual
+
+- Estilos por clases utilitarias y CSS en componentes.
+- Integracion con lineamientos visuales provenientes de Figma.
+- Enfoque institucional: claridad, consistencia y adaptacion movil/escritorio.
+
+### Versionado, automatizacion e infraestructura
+
+- GitHub
+  - Control de versiones, historial y trazabilidad de cambios.
+
+- GitHub Actions
+  - Pipeline de CI/CD que se ejecuta en cada push a `main`.
+  - Compila y despliega automaticamente.
+
+- Cloudflare Pages
+  - Hosting del frontend en produccion.
+  - Entrega rapida y estable del sitio publicado.
+
+## 4. Arquitectura funcional actual
+
+La aplicacion sigue una estructura clara:
 
 ```text
 .
-├── .github/
-│   └── workflows/
-│       └── deploy-cloudflare-pages.yml
-├── archive/
-│   ├── legacy-folders/        # Mockups, prediseno y referencias historicas
-│   ├── legacy-root/           # Markdown legacy movido de raiz
-│   ├── legacy-scripts/        # Scripts antiguos no operativos
-│   └── legacy-workflows/      # Workflows antiguos archivados
-├── public/
-│   ├── images/
-│   │   └── fotos-pasaporte/
-│   │       └── deuna/         # Fotos usadas por la pagina DEUNA
-│   └── prediseño/             # Recursos publicos heredados aun disponibles
-├── scripts/
-│   ├── deploy-cloudflare-automation.ps1
-│   └── install-and-build.ps1
-├── src/
+├── src/                    # Codigo activo
 │   ├── app/
-│   │   ├── components/
-│   │   ├── data/
-│   │   └── routes.tsx
-│   ├── assets/
-│   └── styles/
-├── package.json
-└── vite.config.ts
+│   │   ├── components/     # Componentes y paginas
+│   │   ├── data/           # Datos estructurados
+│   │   └── routes.tsx      # Definicion de rutas
+│   ├── assets/             # Recursos empaquetados
+│   └── styles/             # Estilos globales
+├── public/                 # Assets estaticos en runtime
+├── scripts/                # Scripts internos vigentes
+├── .github/workflows/      # CI/CD
+└── archive/                # Material legacy preservado
 ```
 
-## Dónde inicia la app
+Puntos de entrada clave:
 
-- Entrada principal React: `src/main.tsx`
-- Configuracion de rutas: `src/app/routes.tsx`
-- Componente raiz de app: `src/app/App.tsx`
+- `src/main.tsx`: arranque de la app.
+- `src/app/App.tsx`: contenedor principal.
+- `src/app/routes.tsx`: mapa central de navegacion.
 
-## Imágenes y assets en uso
+## 5. Estado real del proyecto
 
-### Assets empaquetados por Vite
+Estado validado:
 
-- `src/assets/logo-feuna.png`
-- `src/assets/banner-acerca-de-feuna.png`
+- Build local estable (`npm run build`).
+- Deploy automatico operativo por GitHub Actions + Cloudflare Pages.
+- Rutas internas normalizadas con compatibilidad de enlaces legacy.
+- Material historico movido a `archive/` para separar pasado y codigo activo.
+- Convencion de assets para fotos institucionales aplicada (ejemplo: DEUNA).
 
-### Fotos de pasaporte DEUNA (runtime)
+## 6. Convenciones de assets (importante para continuidad)
 
-- Carpeta activa: `public/images/fotos-pasaporte/deuna/`
-- Consumidas por: `src/app/components/pages/DeunaPage.tsx`
-- Base URL activa en codigo: `/images/fotos-pasaporte/deuna/`
+### Assets empaquetados
 
-## Scripts activos
+- Ubicacion: `src/assets/`
+- Uso: recursos que viajan dentro del build.
 
-- `scripts/install-and-build.ps1`: instalacion y build local.
-- `scripts/deploy-cloudflare-automation.ps1`: crea/verifica proyecto Pages y configura secrets en GitHub.
-- Detalle de uso y alcance: `scripts/README.md`.
+### Assets publicos
 
-## CI/CD y despliegue
+- Ubicacion: `public/`
+- Uso: archivos estaticos servidos en runtime.
 
-- Workflow activo: `.github/workflows/deploy-cloudflare-pages.yml`
-- Trigger: push a `main`
-- Flujo:
-  1. instala dependencias (`npm install`)
-  2. ejecuta build (`npm run build`)
-  3. despliega `dist/` a Cloudflare Pages
+Convencion activa para fotos tipo pasaporte por organo:
 
-Variables necesarias en GitHub Secrets:
+- `public/images/fotos-pasaporte/<organo>/`
+
+Ejemplo en uso:
+
+- `public/images/fotos-pasaporte/deuna/`
+
+## 7. Scripts vigentes y pertinencia
+
+Se mantuvieron solo scripts utiles para el flujo actual FEUNA/DTIC.
+
+Detalle extendido: `scripts/README.md`
+
+Scripts activos:
+
+1. `scripts/install-and-build.ps1`
+   - Instala dependencias.
+   - Ejecuta build.
+   - Permite validar localmente la salida de produccion.
+
+2. `scripts/deploy-cloudflare-automation.ps1`
+   - Apoya configuracion de Cloudflare Pages.
+   - Configura secrets de GitHub para despliegue.
+
+## 8. Flujo operativo recomendado
+
+Flujo simple y controlado para equipo pequeno:
+
+1. Cambios en codigo.
+2. Validacion local (`npm run build`).
+3. Push a `main`.
+4. Pipeline automatica despliega en Cloudflare Pages.
+5. Verificacion final visual en sitio publicado.
+
+## 9. CI/CD y secretos requeridos
+
+Workflow activo:
+
+- `.github/workflows/deploy-cloudflare-pages.yml`
+
+Secrets requeridos en GitHub:
 
 - `CF_API_TOKEN`
 - `CF_ACCOUNT_ID`
 - `CF_PROJECT_NAME`
 
-## Qué se hizo en esta etapa
+## 10. Relacion Figma -> implementacion
 
-- Reorganizacion del repositorio para presentacion final.
-- Archivo de material historico y no operativo en `archive/`.
-- Correccion de workflow de deploy para entorno actual.
-- Normalizacion de ruta de fotos DEUNA en carpeta dedicada.
-- Preparacion del proyecto para trabajo incremental por organos.
+El proyecto sigue una logica de trabajo en dos capas:
 
-## Pendientes funcionales y de contenido
+- Figma define arquitectura visual y experiencia.
+- Este repositorio implementa la version funcional y desplegable.
 
-Pendientes tecnicos/prioritarios:
+La carpeta `archive/` mantiene trazabilidad de decisiones previas y facilita auditoria historica sin contaminar el codigo activo.
 
-- Completar panel/pagina de Asociaciones con estructura final.
-- Ajustar navegacion inferior/footer para consistencia entre paginas.
-- Revisar navegacion cruzada y enlaces internos en todas las vistas.
+## 11. Pendientes priorizados
 
-Pendientes de diseno y contenido:
+Pendientes funcionales:
 
-- Agregar placeholders de imagen donde aun falta contenido visual.
-- Sustituir placeholders por imagenes finales aprobadas.
-- Recopilar informacion institucional faltante (textos, datos, contactos, documentos).
-- Consolidar plantillas editoriales por seccion/organo para carga de contenido.
+- Completar secciones de contenido institucional faltante.
+- Ajustes finales de navegacion y coherencia cross-page.
 
-Pendientes de documentacion:
+Pendientes de contenido:
 
-- Depurar links legacy y referencias antiguas en markdown archivado.
-- Mantener trazabilidad de fases de implementacion vs diseno Figma.
+- Sustitucion de placeholders por contenido aprobado institucionalmente.
+- Carga de textos y documentos oficiales finales.
 
-## Relacion con Figma
+Pendientes de calidad:
 
-El proyecto se desarrolla con una estrategia "Figma + implementacion":
+- Revalidacion integral de enlaces y experiencia movil.
 
-- Figma define estructura visual, jerarquia y componentes.
-- Este repositorio implementa y valida esas decisiones en frontend real.
-- `archive/` conserva el contexto historico para no perder decisiones previas.
-
-## Comandos de trabajo
+## 12. Comandos base
 
 Instalar dependencias:
 
@@ -134,7 +185,7 @@ Instalar dependencias:
 npm install
 ```
 
-Levantar entorno local:
+Desarrollo local:
 
 ```bash
 npm run dev
@@ -146,10 +197,9 @@ Build de produccion:
 npm run build
 ```
 
-## Notas de gestion
+## 13. Nota de gobernanza
 
-- `archive/` no es basura: es respaldo historico.
-- Todo lo nuevo debe implementarse sobre `src/` + `public/` actuales.
-- Cualquier nuevo organo con fotos tipo pasaporte debe usar la convencion:
-  - `public/images/fotos-pasaporte/<organo>/`
+Este repositorio se administra como activo institucional FEUNA/DTIC.
+
+Las decisiones de contenido, estilo y publicacion final se coordinan de forma interna entre ambas instancias.
   
