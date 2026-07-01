@@ -3,7 +3,7 @@ import { FileText, Download, Calendar, BookOpen, Scale, Gavel } from "lucide-rea
 import { useState } from "react";
 
 const documentos = [
-  { tipo: "Estatuto", titulo: "Estatuto de la FEUNA vigente", fecha: "Última reforma 2024", archivo: "#", desc: "Marco normativo fundamental de la Federación de Estudiantes" },
+  { tipo: "Estatuto", titulo: "Estatuto de la FEUNA vigente", fecha: "Última reforma 2026", archivo: "#", desc: "Marco normativo fundamental de la Federación de Estudiantes" },
   { tipo: "Estatuto", titulo: "Estatuto de la FEUNA (versión anterior)", fecha: "2020", archivo: "#", desc: "Versión histórica del estatuto" },
   { tipo: "Reglamento", titulo: "Reglamento del Directorio Ejecutivo (DEUNA)", fecha: "Vigente 2025", archivo: "#", desc: "Funcionamiento y organización del DEUNA" },
   { tipo: "Reglamento", titulo: "Reglamento Electoral Estudiantil", fecha: "Vigente 2024", archivo: "#", desc: "Normativa de procesos electorales estudiantiles" },

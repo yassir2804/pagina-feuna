@@ -59,7 +59,7 @@ export const organos: Organo[] = [
     id: "cefeuna",
     nombre: "Contraloría Estudiantil FEUNA",
     sigla: "CEFEUNA",
-    descripcion: "Órgano ejecutivo de la FEUNA encargado de implementar políticas y gestionar el día a día.",
+    descripcion: "Instancia fiscalizadora de las finanzas y los espacios estudiantiles de la FEUNA, con plena autonomía en estas materias.",
     telefono: "(506) 2277-3236",
     email: "cefeuna@una.cr",
     direccion: "Edificio FEUNA, Campus Omar Dengo, Heredia",

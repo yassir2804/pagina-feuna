@@ -3,14 +3,14 @@ import { HeroInternal } from "../HeroInternal";
 import { Users, Send, ArrowRight, CheckCircle } from "lucide-react";
 
 const comisiones = [
-  { title: "Comisión de Asuntos Académicos", desc: "Proyectos para mejorar la calidad académica y defender derechos estudiantiles.", href: "/participa/formulario/academicos" },
-  { title: "Comisión de Acción Social", desc: "Voluntariado, proyectos comunitarios y extensión universitaria.", href: "/participa/formulario/accion-social" },
-  { title: "Comisión de Asuntos Socioeconómicos", desc: "Gestión de becas, ayudas y apoyo económico estudiantil.", href: "/participa/formulario/socioeconomicos" },
-  { title: "Comisión de Vida Estudiantil", desc: "Salud mental, bienestar, cultura y deporte.", href: "/participa/formulario/vida-estudiantil" },
-  { title: "Comisión de Comunicación", desc: "Difusión, redes sociales, diseño gráfico y contenidos.", href: "/participa/formulario/comunicacion" },
-  { title: "Comisión de Género y Diversidad", desc: "Promoción de igualdad, prevención de violencias y derechos.", href: "/participa/formulario/genero" },
-  { title: "Comisión de Sede Regionales", desc: "Articulación entre sedes y proyectos descentralizados.", href: "/participa/formulario/sedes" },
-  { title: "Comisión de Ambiente", desc: "Sostenibilidad, reciclaje y campañas ambientales.", href: "/participa/formulario/ambiente" },
+  { title: "Comisión de Asuntos Universitarios", desc: "Bienestar estudiantil, becas y servicios estudiantiles ante la Vicerrectoría de Vida Estudiantil.", href: "/participa/formulario/asuntos-universitarios" },
+  { title: "Comisión de Política Nacional e Internacional", desc: "Defensa de derechos humanos, análisis de la realidad nacional y relaciones internacionales.", href: "/participa/formulario/politica-nacional-internacional" },
+  { title: "Comisión de Cultura, Recreación y Deporte", desc: "Actividades culturales, artísticas, recreativas y deportivas para la comunidad estudiantil.", href: "/participa/formulario/cultura-recreacion-deporte" },
+  { title: "Comisión de Asuntos Regionales", desc: "Articulación entre la sede central y los campus y secciones regionales.", href: "/participa/formulario/asuntos-regionales" },
+  { title: "Comisión de Diversidad, Equidad y Género", desc: "Igualdad de género, no discriminación y derechos de poblaciones diversas.", href: "/participa/formulario/diversidad-equidad-genero" },
+  { title: "Comisión de Asuntos Ecológicos", desc: "Sostenibilidad, defensa de recursos naturales y agenda socioambiental.", href: "/participa/formulario/asuntos-ecologicos" },
+  { title: "Comisión de Finanzas", desc: "Presupuesto, contabilidad y fondos económicos del Directorio.", href: "/participa/formulario/finanzas" },
+  { title: "Oficina de Comunicación e Información", desc: "Difusión de acuerdos, actividades y contenidos de la FEUNA.", href: "/participa/formulario/comunicacion" },
 ];
 
 export function ParticipaSumatePage() {
