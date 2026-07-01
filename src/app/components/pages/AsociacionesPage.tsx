@@ -1,60 +1,82 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router";
 import { HeroInternal } from "../HeroInternal";
 import {
   Users, ChevronRight, Building2, Scale, ShieldCheck, HandCoins,
-  FileText, Landmark, Vote, Megaphone, Wallet, Gavel, MapPin, Mail,
+  FileText, Landmark, Vote, Megaphone, Wallet, Gavel, MapPin, Mail, Search,
 } from "lucide-react";
 
-const integrantesPlaceholder = {
-  presidencia: "[Nombre pendiente]",
-  vicepresidencia: "[Nombre pendiente]",
-  secretaria: "[Nombre pendiente]",
-  tesoreria: "[Nombre pendiente]",
-  fiscalia: "[Nombre pendiente]",
-};
+const NOMBRE_PENDIENTE = "[Nombre pendiente]";
 
-type Asociacion = { nombre: string; sigla: string; sede: string };
+type Asociacion = { nombre: string; sigla: string; sede: string; regional: boolean };
 
 const asociacionesSedeCentral: Asociacion[] = [
-  { nombre: "Asociación de Estudiantes de Economía", sigla: "AEECO", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Planificación y Promoción Social", sigla: "ASOPPS", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Administración", sigla: "ASOEDA", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Relaciones Internacionales", sigla: "ASORRII", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Comercio y Negocios Internacionales", sigla: "ASONIC", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Psicología", sigla: "ASEP", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Historia y Estudios Sociales", sigla: "ASOEESSH", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Sociología", sigla: "AESOCIO", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Inteligencia y Estrategia Global", sigla: "ASOIEG", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Administración de Oficina y Educación Comercial", sigla: "ASOAOEC", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Educación Rural", sigla: "ASEDER", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Educación Básica", sigla: "ASEDEBA", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Educación para el Trabajo", sigla: "ASEDETASO", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Artes Escénicas", sigla: "ASOESCENICAS", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Danza", sigla: "ASODANZA", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Artes y Comunicación Visual", sigla: "ASOACV", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Música", sigla: "ASOEMU", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Ciencias del Movimiento Humano", sigla: "ASOCIEMHCAVI", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Veterinaria", sigla: "ASOVETE", sede: "Campus Benjamín Núñez" },
-  { nombre: "Asociación de Estudiantes de Ciencias Ambientales", sigla: "AEDECA", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Geografía", sigla: "AEGECA", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Ciencias Agrarias", sigla: "ASOECAS", sede: "Campus Benjamín Núñez" },
-  { nombre: "Asociación de Estudiantes de Bibliotecología", sigla: "ASOEBDI", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Teología", sigla: "ASOTEO", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Español", sigla: "ASOESPA", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Filosofía", sigla: "ASOFILO", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Género", sigla: "ASOGEDE", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Literatura y Lenguaje", sigla: "ASELYL", sede: "Campus Omar Dengo" },
-  { nombre: "Asociación de Estudiantes de Residencias", sigla: "ASORESIS", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Economía", sigla: "AEECO", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Planificación y Promoción Social", sigla: "ASOPPS", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Administración", sigla: "ASOEDA", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Relaciones Internacionales", sigla: "ASORRII", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Comercio y Negocios Internacionales", sigla: "ASONIC", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Psicología", sigla: "ASEP", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Historia y Estudios Sociales", sigla: "ASOEESSH", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Sociología", sigla: "AESOCIO", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Inteligencia y Estrategia Global", sigla: "ASOIEG", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Administración de Oficina y Educación Comercial", sigla: "ASOAOEC", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Educación Rural", sigla: "ASEDER", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Educación Básica", sigla: "ASEDEBA", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Educación para el Trabajo", sigla: "ASEDETASO", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Artes Escénicas", sigla: "ASOESCENICAS", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Danza", sigla: "ASODANZA", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Artes y Comunicación Visual", sigla: "ASOACV", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Música", sigla: "ASOEMU", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Ciencias del Movimiento Humano", sigla: "ASOCIEMHCAVI", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Veterinaria", sigla: "ASOVETE", sede: "Campus Benjamín Núñez", regional: false },
+  { nombre: "Asociación de Estudiantes de Ciencias Ambientales", sigla: "AEDECA", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Geografía", sigla: "AEGECA", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Ciencias Agrarias", sigla: "ASOECAS", sede: "Campus Benjamín Núñez", regional: false },
+  { nombre: "Asociación de Estudiantes de Bibliotecología", sigla: "ASOEBDI", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Teología", sigla: "ASOTEO", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Español", sigla: "ASOESPA", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Filosofía", sigla: "ASOFILO", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Género", sigla: "ASOGEDE", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Literatura y Lenguaje", sigla: "ASELYL", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Residencias", sigla: "ASORESIS", sede: "Campus Omar Dengo", regional: false },
 ];
 
 const asociacionesRegionales: Asociacion[] = [
-  { nombre: "Asociación de Estudiantes de Liberia", sigla: "ASEUNAL", sede: "Sede Regional Chorotega, Liberia" },
-  { nombre: "Asociación de Estudiantes de Pérez Zeledón", sigla: "ASEUNAPZ", sede: "Sede Regional Brunca, Pérez Zeledón" },
-  { nombre: "Asociación de Estudiantes de Nicoya", sigla: "ASEUNAN", sede: "Sede Regional Chorotega, Nicoya" },
-  { nombre: "Asociación de Estudiantes de Intersede", sigla: "ASEINTER", sede: "Sede Interuniversitaria de Alajuela" },
-  { nombre: "Asociación de Estudiantes de Sarapiquí", sigla: "ASOECAS-SAR", sede: "Sede Interuniversitaria de Sarapiquí" },
-  { nombre: "Asociación de Estudiantes de Coto", sigla: "ASOCOTO", sede: "Sede Regional Brunca, Coto" },
+  { nombre: "Asociación de Estudiantes de Liberia", sigla: "ASEUNAL", sede: "Sede Regional Chorotega, Liberia", regional: true },
+  { nombre: "Asociación de Estudiantes de Pérez Zeledón", sigla: "ASEUNAPZ", sede: "Sede Regional Brunca, Pérez Zeledón", regional: true },
+  { nombre: "Asociación de Estudiantes de Nicoya", sigla: "ASEUNAN", sede: "Sede Regional Chorotega, Nicoya", regional: true },
+  { nombre: "Asociación de Estudiantes de Intersede", sigla: "ASEINTER", sede: "Sede Interuniversitaria de Alajuela", regional: true },
+  { nombre: "Asociación de Estudiantes de Sarapiquí", sigla: "ASOECAS-SAR", sede: "Sede Interuniversitaria de Sarapiquí", regional: true },
+  { nombre: "Asociación de Estudiantes de Coto", sigla: "ASOCOTO", sede: "Sede Regional Brunca, Coto", regional: true },
+];
+
+const puestosCompletosSedeCentral = [
+  { label: "Presidencia" },
+  { label: "Vicepresidencia" },
+  { label: "Representación 1 ante el CAEUNA" },
+  { label: "Representación 2 ante el CAEUNA" },
+  { label: "Representación en el consejo de unidad académica" },
+  { label: "Representación en el consejo de facultad" },
+  { label: "Secretaría" },
+  { label: "Tesorería" },
+  { label: "Suplencia uno" },
+  { label: "Suplencia dos" },
+  { label: "Fiscalía" },
+];
+
+const puestosCompletosRegionales = [
+  { label: "Presidencia" },
+  { label: "Vicepresidencia" },
+  { label: "Representación 1 ante el CAEUNA" },
+  { label: "Representación 2 ante el CAEUNA" },
+  { label: "Representación del consejo de sede regional, interuniversitaria o sección" },
+  { label: "Suplencia de la representación de sede" },
+  { label: "Fiscalía" },
+  { label: "Secretaría" },
+  { label: "Tesorería" },
+  { label: "Suplencia uno" },
+  { label: "Suplencia dos" },
 ];
 
 const finesAsociaciones = [
@@ -118,11 +140,22 @@ const deberes = [
   "Promover valores de empatía, respeto, compañerismo, solidaridad y tolerancia.",
 ];
 
+const todasLasAsociaciones = [...asociacionesSedeCentral, ...asociacionesRegionales];
+
 export function AsociacionesPage() {
+  const [busqueda, setBusqueda] = useState("");
   const [asociacionSeleccionada, setAsociacionSeleccionada] = useState(asociacionesSedeCentral[0].sigla);
 
-  const todasLasAsociaciones = [...asociacionesSedeCentral, ...asociacionesRegionales];
+  const asociacionesFiltradas = useMemo(() => {
+    const termino = busqueda.trim().toLowerCase();
+    if (!termino) return todasLasAsociaciones;
+    return todasLasAsociaciones.filter(
+      (a) => a.nombre.toLowerCase().includes(termino) || a.sigla.toLowerCase().includes(termino)
+    );
+  }, [busqueda]);
+
   const asociacionActiva = todasLasAsociaciones.find((a) => a.sigla === asociacionSeleccionada);
+  const puestos = asociacionActiva?.regional ? puestosCompletosRegionales : puestosCompletosSedeCentral;
 
   return (
     <div>
@@ -212,65 +245,79 @@ export function AsociacionesPage() {
 
       {/* Directorio de asociaciones */}
       <section className="py-16 bg-white">
-        <div className="max-w-[900px] mx-auto px-5">
+        <div className="max-w-[1100px] mx-auto px-5">
           <div className="text-center mb-10">
             <h2 className="mb-4" style={{ fontSize: '32px', fontWeight: 700, color: '#1a1a1a' }}>Directorio de asociaciones</h2>
             <p className="max-w-[700px] mx-auto" style={{ fontSize: '15px', lineHeight: 1.7, color: '#666666' }}>
-              Elegí una asociación estudiantil para ver su Junta Directiva.
+              Buscá y elegí una asociación estudiantil para ver los puestos de su Junta Directiva.
               Los nombres y correos se irán completando a medida que cada asociación los facilite.
             </p>
           </div>
 
-          <div className="mb-8">
-            <label htmlFor="asociacion-select" className="block mb-2" style={{ fontSize: '13px', fontWeight: 600, color: '#666666', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-              Seleccioná una asociación
-            </label>
-            <select
-              id="asociacion-select"
-              value={asociacionSeleccionada}
-              onChange={(e) => setAsociacionSeleccionada(e.target.value)}
-              className="w-full border border-[#dddddd] rounded px-4 py-3 bg-white"
-              style={{ fontSize: '15px', color: '#1a1a1a' }}
-            >
-              <optgroup label="Sede central">
-                {asociacionesSedeCentral.map((a) => (
-                  <option key={a.sigla} value={a.sigla}>{a.nombre} ({a.sigla})</option>
-                ))}
-              </optgroup>
-              <optgroup label="Campus y sedes regionales">
-                {asociacionesRegionales.map((a) => (
-                  <option key={a.sigla} value={a.sigla}>{a.nombre} ({a.sigla})</option>
-                ))}
-              </optgroup>
-            </select>
-          </div>
-
-          {asociacionActiva && (
-            <div className="bg-[#f5f5f5] rounded-lg border border-[#dddddd] p-6">
-              <div className="flex items-start justify-between gap-2 mb-2">
-                <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#1a1a1a', lineHeight: 1.3 }}>{asociacionActiva.nombre}</h3>
-                <span className="shrink-0 bg-[#bb1f1f]/10 text-[#bb1f1f] px-2 py-1 rounded" style={{ fontSize: '12px', fontWeight: 700 }}>
-                  {asociacionActiva.sigla}
-                </span>
+          <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-6">
+            {/* Buscador y lista */}
+            <div>
+              <div className="relative mb-3">
+                <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#999]" />
+                <input
+                  type="text"
+                  value={busqueda}
+                  onChange={(e) => setBusqueda(e.target.value)}
+                  placeholder="Buscar por nombre o sigla..."
+                  className="w-full border border-[#dddddd] rounded pl-9 pr-3 py-2.5"
+                  style={{ fontSize: '14px' }}
+                />
               </div>
-              <div className="flex items-center gap-1.5 text-[#666666] mb-5" style={{ fontSize: '13px' }}>
-                <MapPin size={13} className="shrink-0" />
-                <span>{asociacionActiva.sede}</span>
-              </div>
-              <div className="bg-white rounded-lg p-5 space-y-2.5" style={{ fontSize: '14px', color: '#333333' }}>
-                <div><strong>Presidencia:</strong> {integrantesPlaceholder.presidencia}</div>
-                <div><strong>Vicepresidencia:</strong> {integrantesPlaceholder.vicepresidencia}</div>
-                <div><strong>Secretaría:</strong> {integrantesPlaceholder.secretaria}</div>
-                <div><strong>Tesorería:</strong> {integrantesPlaceholder.tesoreria}</div>
-                <div><strong>Fiscalía:</strong> {integrantesPlaceholder.fiscalia}</div>
-                <div><strong>Representaciones ante el CAEUNA:</strong> {integrantesPlaceholder.presidencia}, {integrantesPlaceholder.vicepresidencia}</div>
-                <div className="flex items-center gap-1.5 pt-2 mt-2 border-t border-[#eeeeee] text-[#999]">
-                  <Mail size={13} className="shrink-0" />
-                  <span>[correo pendiente]</span>
-                </div>
+              <div className="border border-[#dddddd] rounded-lg overflow-y-auto" style={{ maxHeight: '420px' }}>
+                {asociacionesFiltradas.length === 0 && (
+                  <p className="px-4 py-4 text-center text-[#999]" style={{ fontSize: '13px' }}>
+                    No se encontró ninguna asociación.
+                  </p>
+                )}
+                {asociacionesFiltradas.map((a) => (
+                  <button
+                    key={a.sigla}
+                    onClick={() => setAsociacionSeleccionada(a.sigla)}
+                    className={`w-full text-left px-4 py-3 border-b border-[#f0f0f0] last:border-b-0 transition-colors ${
+                      asociacionSeleccionada === a.sigla ? 'bg-[#bb1f1f]/10' : 'hover:bg-[#f5f5f5]'
+                    }`}
+                  >
+                    <div style={{ fontSize: '13px', fontWeight: 600, color: asociacionSeleccionada === a.sigla ? '#bb1f1f' : '#1a1a1a' }}>
+                      {a.nombre}
+                    </div>
+                    <div style={{ fontSize: '12px', color: '#999' }}>{a.sigla} · {a.sede}</div>
+                  </button>
+                ))}
               </div>
             </div>
-          )}
+
+            {/* Detalle de la asociación seleccionada */}
+            {asociacionActiva && (
+              <div className="bg-[#f5f5f5] rounded-lg border border-[#dddddd] p-6 h-fit">
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#1a1a1a', lineHeight: 1.3 }}>{asociacionActiva.nombre}</h3>
+                  <span className="shrink-0 bg-[#bb1f1f]/10 text-[#bb1f1f] px-2 py-1 rounded" style={{ fontSize: '12px', fontWeight: 700 }}>
+                    {asociacionActiva.sigla}
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 text-[#666666] mb-5" style={{ fontSize: '13px' }}>
+                  <MapPin size={13} className="shrink-0" />
+                  <span>{asociacionActiva.sede}</span>
+                </div>
+                <div className="bg-white rounded-lg p-5 space-y-2" style={{ fontSize: '14px', color: '#333333' }}>
+                  {puestos.map((p) => (
+                    <div key={p.label}>
+                      <strong>{p.label}:</strong> {NOMBRE_PENDIENTE}
+                    </div>
+                  ))}
+                  <div className="flex items-center gap-1.5 pt-2 mt-2 border-t border-[#eeeeee] text-[#999]">
+                    <Mail size={13} className="shrink-0" />
+                    <span>[correo pendiente]</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
