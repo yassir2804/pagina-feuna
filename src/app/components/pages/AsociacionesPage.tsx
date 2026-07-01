@@ -3,52 +3,59 @@ import { Link } from "react-router";
 import { HeroInternal } from "../HeroInternal";
 import {
   Users, ChevronRight, Building2, Scale, ShieldCheck, HandCoins,
-  FileText, Landmark, Vote, Megaphone, Wallet, Gavel, MapPin, Mail, Search,
+  FileText, Landmark, Vote, Megaphone, Wallet, Gavel, MapPin, Mail, Search, AlertTriangle,
 } from "lucide-react";
 
 const NOMBRE_PENDIENTE = "[Nombre pendiente]";
 
-type Asociacion = { nombre: string; sigla: string; sede: string; regional: boolean };
+type Asociacion = { nombre: string; sigla: string; sede: string; regional: boolean; acreditada?: boolean };
 
 const asociacionesSedeCentral: Asociacion[] = [
-  { nombre: "Asociación de Estudiantes de Economía", sigla: "AEECO", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Planificación y Promoción Social", sigla: "ASOPPS", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Administración", sigla: "ASOEDA", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Relaciones Internacionales", sigla: "ASORRII", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Comercio y Negocios Internacionales", sigla: "ASONIC", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Psicología", sigla: "ASEP", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Historia y Estudios Sociales", sigla: "ASOEESSH", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Sociología", sigla: "AESOCIO", sede: "Campus Omar Dengo", regional: false },
+  { nombre: "Asociación de Estudiantes de Educación Rural", sigla: "ASEDER", sede: "CIDE", regional: false, acreditada: false },
+  { nombre: "Asociación de Estudiantes de Educación para el Trabajo", sigla: "ASEDETASO", sede: "CIDE", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Educación Básica", sigla: "ASEDEBA", sede: "CIDE", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Artes Escénicas", sigla: "ASOESCENICAS", sede: "CIDEA", regional: false, acreditada: false },
+  { nombre: "Asociación de Estudiantes de Artes y Comunicación Visual", sigla: "ASOACV", sede: "CIDEA", regional: false, acreditada: false },
+  { nombre: "Asociación de Estudiantes de Música", sigla: "ASOEMU", sede: "CIDEA", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Danza", sigla: "ASODANZA", sede: "CIDEA", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Veterinaria", sigla: "ASOVETE", sede: "Ciencias de la Salud", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Ciencias del Movimiento Humano", sigla: "ASOCIEMHCAVI", sede: "Ciencias de la Salud", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Informática", sigla: "ASOINFO", sede: "Ciencias Naturales y Exactas", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Topografía, Catastro y Geodesia", sigla: "ASOTOPO", sede: "Ciencias Naturales y Exactas", regional: false, acreditada: false },
+  { nombre: "Asociación de Estudiantes de Ciencias Biológicas", sigla: "ASOBIO", sede: "Ciencias Naturales y Exactas", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Matemáticas", sigla: "ASOMATE", sede: "Ciencias Naturales y Exactas", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Química", sigla: "ASOQUIM", sede: "Ciencias Naturales y Exactas", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Ciencias Ambientales", sigla: "AEDECA", sede: "Tierra y Mar", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Geografía y Cartografía", sigla: "AEGECA", sede: "Tierra y Mar", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Ciencias Agrarias", sigla: "ASOECAS", sede: "Tierra y Mar", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Economía", sigla: "AEECO", sede: "Ciencias Sociales", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Relaciones Internacionales", sigla: "ASORRII", sede: "Ciencias Sociales", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Historia", sigla: "ASOEESSH", sede: "Ciencias Sociales", regional: false, acreditada: false },
+  { nombre: "Asociación de Estudiantes de Planificación y Promoción Social", sigla: "ASOPPS", sede: "Ciencias Sociales", regional: false, acreditada: false },
+  { nombre: "Asociación de Estudiantes de Comercio y Negocios Internacionales", sigla: "ASONIC", sede: "Ciencias Sociales", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Sociología", sigla: "AESOCIO", sede: "Ciencias Sociales", regional: false, acreditada: false },
+  { nombre: "Asociación de Estudiantes de Administración", sigla: "ASOEDA", sede: "Ciencias Sociales", regional: false, acreditada: false },
+  { nombre: "Asociación de Estudiantes de Psicología", sigla: "ASEP", sede: "Ciencias Sociales", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Secretariado", sigla: "ASOSECRE", sede: "Ciencias Sociales", regional: false, acreditada: false },
+  { nombre: "Asociación de Estudiantes de Bibliotecología", sigla: "ASOEBDI", sede: "Filosofía y Letras", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Español", sigla: "ASOESPA", sede: "Filosofía y Letras", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes del Instituto en Estudios de la Mujer", sigla: "ASOIEM", sede: "Filosofía y Letras", regional: false, acreditada: false },
+  { nombre: "Asociación de Estudiantes de Teología", sigla: "ASOTEO", sede: "Filosofía y Letras", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Filosofía", sigla: "ASOFILO", sede: "Filosofía y Letras", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Lenguas y Literatura", sigla: "ASELYL", sede: "Filosofía y Letras", regional: false, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Género", sigla: "ASOGEDE", sede: "Campus Omar Dengo", regional: false },
   { nombre: "Asociación de Estudiantes de Inteligencia y Estrategia Global", sigla: "ASOIEG", sede: "Campus Omar Dengo", regional: false },
   { nombre: "Asociación de Estudiantes de Administración de Oficina y Educación Comercial", sigla: "ASOAOEC", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Educación Rural", sigla: "ASEDER", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Educación Básica", sigla: "ASEDEBA", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Educación para el Trabajo", sigla: "ASEDETASO", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Artes Escénicas", sigla: "ASOESCENICAS", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Danza", sigla: "ASODANZA", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Artes y Comunicación Visual", sigla: "ASOACV", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Música", sigla: "ASOEMU", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Ciencias del Movimiento Humano", sigla: "ASOCIEMHCAVI", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Veterinaria", sigla: "ASOVETE", sede: "Campus Benjamín Núñez", regional: false },
-  { nombre: "Asociación de Estudiantes de Ciencias Ambientales", sigla: "AEDECA", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Geografía", sigla: "AEGECA", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Ciencias Agrarias", sigla: "ASOECAS", sede: "Campus Benjamín Núñez", regional: false },
-  { nombre: "Asociación de Estudiantes de Bibliotecología", sigla: "ASOEBDI", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Teología", sigla: "ASOTEO", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Español", sigla: "ASOESPA", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Filosofía", sigla: "ASOFILO", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Género", sigla: "ASOGEDE", sede: "Campus Omar Dengo", regional: false },
-  { nombre: "Asociación de Estudiantes de Literatura y Lenguaje", sigla: "ASELYL", sede: "Campus Omar Dengo", regional: false },
   { nombre: "Asociación de Estudiantes de Residencias", sigla: "ASORESIS", sede: "Campus Omar Dengo", regional: false },
 ];
 
 const asociacionesRegionales: Asociacion[] = [
-  { nombre: "Asociación de Estudiantes de Liberia", sigla: "ASEUNAL", sede: "Sede Regional Chorotega, Liberia", regional: true },
-  { nombre: "Asociación de Estudiantes de Pérez Zeledón", sigla: "ASEUNAPZ", sede: "Sede Regional Brunca, Pérez Zeledón", regional: true },
-  { nombre: "Asociación de Estudiantes de Nicoya", sigla: "ASEUNAN", sede: "Sede Regional Chorotega, Nicoya", regional: true },
-  { nombre: "Asociación de Estudiantes de Intersede", sigla: "ASEINTER", sede: "Sede Interuniversitaria de Alajuela", regional: true },
-  { nombre: "Asociación de Estudiantes de Sarapiquí", sigla: "ASOECAS-SAR", sede: "Sede Interuniversitaria de Sarapiquí", regional: true },
-  { nombre: "Asociación de Estudiantes de Coto", sigla: "ASOCOTO", sede: "Sede Regional Brunca, Coto", regional: true },
+  { nombre: "Asociación de Estudiantes de Liberia", sigla: "ASEUNAL", sede: "Regional, Liberia", regional: true, acreditada: false },
+  { nombre: "Asociación de Estudiantes de Pérez Zeledón", sigla: "ASEUNAPZ", sede: "Regional, Pérez Zeledón", regional: true, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Nicoya", sigla: "ASEUNAN", sede: "Regional, Nicoya", regional: true, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Intersede", sigla: "ASEINTER", sede: "Regional, Intersede", regional: true, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Sarapiquí", sigla: "ASOECAS-SAR", sede: "Regional, Sarapiquí", regional: true, acreditada: true },
+  { nombre: "Asociación de Estudiantes de Coto", sigla: "ASOCOTO", sede: "Regional, Coto", regional: true, acreditada: false },
 ];
 
 const puestosCompletosSedeCentral = [
@@ -285,7 +292,10 @@ export function AsociacionesPage() {
                     <div style={{ fontSize: '13px', fontWeight: 600, color: asociacionSeleccionada === a.sigla ? '#bb1f1f' : '#1a1a1a' }}>
                       {a.nombre}
                     </div>
-                    <div style={{ fontSize: '12px', color: '#999' }}>{a.sigla} · {a.sede}</div>
+                    <div className="flex items-center gap-1" style={{ fontSize: '12px', color: '#999' }}>
+                      <span>{a.sigla} · {a.sede}</span>
+                      {a.acreditada === false && <AlertTriangle size={12} className="text-[#c75b12] shrink-0" />}
+                    </div>
                   </button>
                 ))}
               </div>
@@ -304,17 +314,34 @@ export function AsociacionesPage() {
                   <MapPin size={13} className="shrink-0" />
                   <span>{asociacionActiva.sede}</span>
                 </div>
-                <div className="bg-white rounded-lg p-5 space-y-2" style={{ fontSize: '14px', color: '#333333' }}>
-                  {puestos.map((p) => (
-                    <div key={p.label}>
-                      <strong>{p.label}:</strong> {NOMBRE_PENDIENTE}
+
+                {asociacionActiva.acreditada === false ? (
+                  <div className="bg-white rounded-lg p-5" style={{ fontSize: '14px', color: '#333333' }}>
+                    <div className="flex items-start gap-3">
+                      <AlertTriangle size={20} className="text-[#c75b12] shrink-0 mt-0.5" />
+                      <div>
+                        <p style={{ fontWeight: 600, color: '#c75b12' }}>Sin Junta Directiva vigente</p>
+                        <p className="mt-1 text-[#666666]" style={{ fontSize: '13px', lineHeight: 1.6 }}>
+                          Según el registro de acreditación del TEEUNA, esta asociación no cuenta actualmente con una
+                          Junta Directiva acreditada. Consultá con el TEEUNA o el CAEUNA para conocer el proceso de
+                          reactivación.
+                        </p>
+                      </div>
                     </div>
-                  ))}
-                  <div className="flex items-center gap-1.5 pt-2 mt-2 border-t border-[#eeeeee] text-[#999]">
-                    <Mail size={13} className="shrink-0" />
-                    <span>[correo pendiente]</span>
                   </div>
-                </div>
+                ) : (
+                  <div className="bg-white rounded-lg p-5 space-y-2" style={{ fontSize: '14px', color: '#333333' }}>
+                    {puestos.map((p) => (
+                      <div key={p.label}>
+                        <strong>{p.label}:</strong> {NOMBRE_PENDIENTE}
+                      </div>
+                    ))}
+                    <div className="flex items-center gap-1.5 pt-2 mt-2 border-t border-[#eeeeee] text-[#999]">
+                      <Mail size={13} className="shrink-0" />
+                      <span>[correo pendiente]</span>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
