@@ -2,7 +2,7 @@ import { HeroInternal } from "../HeroInternal";
 import { 
   FileCheck, Eye, Shield, DollarSign, Building2, AlertCircle,
   UserCircle, UserCheck, UsersRound, CheckCircle, ClipboardCheck,
-  FileText, TrendingUp, Home, Mail, MapPin, Users, ChevronRight, Search
+  FileText, TrendingUp, Home, Mail, Users, ChevronRight, Search
 } from "lucide-react";
 import { useState } from "react";
 
@@ -38,34 +38,24 @@ const roles = [
 
 const integrantes = [
   {
-    nombre: "Contralor/a Estudiantil",
+    nombre: "Julián Murillo Cabezas",
     rol: "contraloria",
     cargo: "Contraloría",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025-2027",
-    email: "contraloria@feuna.cr",
-    iniciales: "CE",
+    email: "julian.murillo.cabezas@est.una.ac.cr",
+    iniciales: "JM",
   },
   {
-    nombre: "Subcontralor/a Estudiantil 1",
+    nombre: "Andres Gabriel Barrera Cardenas",
     rol: "subcontraloria",
-    cargo: "Subcontraloría",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Sede Regional Chorotega",
-    periodo: "2025-2027",
-    email: "subcontraloria1@feuna.cr",
-    iniciales: "S1",
+    cargo: "Subcontraloría 1",
+    email: "andres.barrera.cardenas@est.una.ac.cr",
+    iniciales: "AB",
   },
   {
-    nombre: "Subcontralor/a Estudiantil 2",
+    nombre: "Vacante",
     rol: "subcontraloria",
-    cargo: "Subcontraloría",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Sede Regional Brunca",
-    periodo: "2025-2027",
-    email: "subcontraloria2@feuna.cr",
-    iniciales: "S2",
+    cargo: "Subcontraloría 2",
+    iniciales: "—",
   },
 ];
 
@@ -306,7 +296,7 @@ export function CefeunaPage() {
           {/* Grid de Integrantes */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {integrantesFiltrados.map((miembro) => (
-              <div key={miembro.email} className="bg-white rounded-lg border border-[#dddddd] overflow-hidden hover:shadow-md transition-shadow">
+              <div key={miembro.cargo} className="bg-white rounded-lg border border-[#dddddd] overflow-hidden hover:shadow-md transition-shadow">
                 {/* Foto tipo pasaporte - rectangular */}
                 <div className="bg-[#f5f5f5] flex items-center justify-center" style={{ height: '200px' }}>
                   <div className="w-24 h-28 bg-[#dddddd] rounded flex items-center justify-center">
@@ -314,24 +304,20 @@ export function CefeunaPage() {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h4 style={{ fontSize: '15px', fontWeight: 600, color: '#1a1a1a' }}>{miembro.nombre}</h4>
+                  <h4 style={{ fontSize: '15px', fontWeight: 600, color: miembro.nombre === 'Vacante' ? '#999' : '#1a1a1a' }}>{miembro.nombre}</h4>
                   <p className="text-[#bb1f1f] mt-0.5" style={{ fontSize: '13px', fontWeight: 500 }}>{miembro.cargo}</p>
-                  <div className="mt-3 space-y-1.5">
-                    <div className="flex items-center gap-2 text-[#666666]" style={{ fontSize: '12px' }}>
-                      <MapPin size={13} className="shrink-0" />
-                      <span>{miembro.sede}</span>
+                  {miembro.email && (
+                    <div className="mt-3 pt-3 border-t border-[#eeeeee]">
+                      <a
+                        href={`mailto:${miembro.email}`}
+                        className="flex items-center gap-2 text-[#034991] hover:underline"
+                        style={{ fontSize: '12px', fontWeight: 500 }}
+                      >
+                        <Mail size={12} />
+                        {miembro.email}
+                      </a>
                     </div>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-[#eeeeee]">
-                    <a 
-                      href={`mailto:${miembro.email}`} 
-                      className="flex items-center gap-2 text-[#034991] hover:underline" 
-                      style={{ fontSize: '12px', fontWeight: 500 }}
-                    >
-                      <Mail size={12} />
-                      {miembro.email}
-                    </a>
-                  </div>
+                  )}
                   <span className="inline-block mt-3 bg-[#f5f5f5] text-[#666666] px-2 py-0.5 rounded" style={{ fontSize: '11px', fontWeight: 500 }}>
                     {roles.find(c => c.id === miembro.rol)?.nombre}
                   </span>

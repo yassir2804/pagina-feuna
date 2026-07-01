@@ -1,7 +1,7 @@
 import { HeroInternal } from "../HeroInternal";
-import { 
-  Heart, Users, UserCircle, UserCheck, CheckCircle, 
-  FileText, Mail, MapPin, Building2, ChevronRight,
+import {
+  Heart, Users, UserCircle, UserCheck, CheckCircle,
+  FileText, Mail, Building2, ChevronRight,
   Globe, Star, DollarSign, Eye, Vote, Calendar
 } from "lucide-react";
 import { useState } from "react";
@@ -53,74 +53,51 @@ const roles = [
 
 const integrantes = [
   {
-    nombre: "Coordinador/a del Movimiento",
+    nombre: "Jociney Fernández Reyes",
     rol: "coordinacion",
     cargo: "Coordinación",
-    pueblo: "Pueblo [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025",
-    email: "asomei@una.cr",
-    iniciales: "CM",
+    email: "jociney.fernandez.reyes@est.una.ac.cr",
+    iniciales: "JF",
   },
   {
-    nombre: "Suplente de Coordinación",
+    nombre: "Hernán Barton García",
     rol: "suplencia-coordinacion",
     cargo: "Suplencia de Coordinación",
-    pueblo: "Pueblo [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025",
-    email: "asomei@una.cr",
-    iniciales: "SC",
+    email: "hernan.barton.garcia@est.una.ac.cr",
+    iniciales: "HB",
   },
   {
-    nombre: "Encargado/a de Finanzas",
+    nombre: "Maria Maroto Eugarria",
     rol: "finanzas",
     cargo: "Finanzas",
-    pueblo: "Pueblo [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025",
-    email: "asomei@una.cr",
-    iniciales: "EF",
+    email: "maria.maroto.eugarria@est.una.ac.cr",
+    iniciales: "MM",
   },
   {
-    nombre: "Representante CAEUNA 1",
+    nombre: "Vacante",
     rol: "caeuna",
-    cargo: "Representante ante CAEUNA",
-    pueblo: "Pueblo [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025",
-    email: "asomei@una.cr",
-    iniciales: "R1",
+    cargo: "Representante ante CAEUNA 1",
+    iniciales: "—",
   },
   {
-    nombre: "Representante CAEUNA 2",
+    nombre: "Misdalia Mora Figueroa",
     rol: "caeuna",
-    cargo: "Representante ante CAEUNA",
-    pueblo: "Pueblo [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025",
-    email: "asomei@una.cr",
-    iniciales: "R2",
+    cargo: "Representante ante CAEUNA 2",
+    email: "misdalia.mora.figueroa@est.una.ac.cr",
+    iniciales: "MF",
   },
   {
-    nombre: "Asesor/a del Movimiento",
+    nombre: "Kervin Morales Gómez",
     rol: "asesoria",
     cargo: "Asesoría",
-    pueblo: "Pueblo [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025",
-    email: "asomei@una.cr",
-    iniciales: "AM",
+    email: "kervin.morales.gomez@est.una.ac.cr",
+    iniciales: "KM",
   },
   {
-    nombre: "Suplente de Asesoría",
+    nombre: "Vacante",
     rol: "suplencia-asesoria",
     cargo: "Suplencia de Asesoría",
-    pueblo: "Pueblo [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025",
-    email: "asomei@una.cr",
-    iniciales: "SA",
+    iniciales: "—",
   },
 ];
 
@@ -345,24 +322,20 @@ export function MovimientoIndigenPage() {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h4 style={{ fontSize: '15px', fontWeight: 600, color: '#1a1a1a' }}>{miembro.nombre}</h4>
+                  <h4 style={{ fontSize: '15px', fontWeight: 600, color: miembro.nombre === 'Vacante' ? '#999' : '#1a1a1a' }}>{miembro.nombre}</h4>
                   <p className="text-[#bb1f1f] mt-0.5" style={{ fontSize: '13px', fontWeight: 500 }}>{miembro.cargo}</p>
-                  <div className="mt-3 space-y-1.5">
-                    <div className="flex items-center gap-2 text-[#666666]" style={{ fontSize: '12px' }}>
-                      <MapPin size={13} className="shrink-0" />
-                      <span>{miembro.sede}</span>
+                  {miembro.email && (
+                    <div className="mt-3 pt-3 border-t border-[#eeeeee]">
+                      <a
+                        href={`mailto:${miembro.email}`}
+                        className="flex items-center gap-2 text-[#034991] hover:underline"
+                        style={{ fontSize: '12px', fontWeight: 500 }}
+                      >
+                        <Mail size={12} />
+                        {miembro.email}
+                      </a>
                     </div>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-[#eeeeee]">
-                    <a 
-                      href={`mailto:${miembro.email}`} 
-                      className="flex items-center gap-2 text-[#034991] hover:underline" 
-                      style={{ fontSize: '12px', fontWeight: 500 }}
-                    >
-                      <Mail size={12} />
-                      {miembro.email}
-                    </a>
-                  </div>
+                  )}
                   <span className="inline-block mt-3 bg-[#f5f5f5] text-[#666666] px-2 py-0.5 rounded" style={{ fontSize: '11px', fontWeight: 500 }}>
                     {roles.find(c => c.id === miembro.rol)?.nombre}
                   </span>

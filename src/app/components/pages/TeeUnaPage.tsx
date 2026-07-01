@@ -1,8 +1,8 @@
 import { HeroInternal } from "../HeroInternal";
-import { 
+import {
   Users, Shield, Award, BookOpen, FileCheck, Vote,
   UserCircle, UserCheck, FileText, DollarSign, UsersRound,
-  Building2, ChevronRight, Mail, MapPin, CheckCircle, AlertCircle, UserPlus, ClipboardCheck
+  ChevronRight, Mail, CheckCircle, UserPlus, ClipboardCheck
 } from "lucide-react";
 import { useState } from "react";
 
@@ -52,120 +52,77 @@ const roles = [
     desc: "Integrantes que sostienen la continuidad funcional de la Junta Directiva y apoyan el trabajo electoral cuando se requiere.",
     icono: UsersRound,
   },
-  {
-    id: "representacion-teuna",
-    nombre: "Representación TEUNA",
-    desc: "Representación estudiantil ante el Tribunal Electoral Universitario, elegida desde el seno del TEEUNA.",
-    icono: Building2,
-  },
-  {
-    id: "representacion-tua",
-    nombre: "Representación TUA",
-    desc: "Representación estudiantil ante el Tribunal Universitario de Apelaciones, nombrada por el TEEUNA.",
-    icono: Building2,
-  },
 ];
 
 const integrantes = [
   {
-    nombre: "Presidente/a del TEEUNA",
+    nombre: "Alicia Mariana Víquez Vargas",
     rol: "presidencia",
     cargo: "Presidencia",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025-2026",
-    email: "presidencia.teeuna@una.cr",
-    iniciales: "PT",
+    email: "alicia.viquez.vargas@est.una.ac.cr",
+    iniciales: "AV",
   },
   {
-    nombre: "Vicepresidente/a del TEEUNA",
+    nombre: "Axel Mora Díaz",
     rol: "vicepresidencia",
     cargo: "Vicepresidencia",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025-2026",
-    email: "vicepresidencia.teeuna@una.cr",
-    iniciales: "VT",
+    email: "axel.mora.diaz@est.una.ac.cr",
+    iniciales: "AM",
   },
   {
-    nombre: "Secretario/a del TEEUNA",
+    nombre: "Arianna Barquero Ortiz",
     rol: "secretaria",
-    cargo: "Secretaría",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Sede Regional Chorotega",
-    periodo: "2025-2026",
-    email: "secretaria.teeuna@una.cr",
-    iniciales: "ST",
+    cargo: "Secretaría 1",
+    email: "arianna.barquero.ortiz@est.una.ac.cr",
+    iniciales: "AB",
   },
   {
-    nombre: "Encargado/a de Finanzas",
+    nombre: "Emiliano Medina Contreras",
+    rol: "secretaria",
+    cargo: "Secretaría 2",
+    email: "emiliano.medina.contreras@est.una.ac.cr",
+    iniciales: "EM",
+  },
+  {
+    nombre: "Jose Andres Rodriguez Zuniga",
     rol: "finanzas",
-    cargo: "Finanzas",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025-2026",
-    email: "finanzas.teeuna@una.cr",
-    iniciales: "FT",
+    cargo: "Finanzas 1",
+    email: "jose.rodriguez.zuniga@est.una.ac.cr",
+    iniciales: "JR",
   },
   {
-    nombre: "Suplente 1",
+    nombre: "Sophia Delemos Gould",
+    rol: "finanzas",
+    cargo: "Finanzas 2",
+    email: "sophia.delemos.gould@est.una.ac.cr",
+    iniciales: "SD",
+  },
+  {
+    nombre: "Andrew Joel Chamorro Trejos",
     rol: "suplencias",
-    cargo: "Suplencia",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Sede Regional Brunca",
-    periodo: "2025-2026",
-    email: "suplente1.teeuna@una.cr",
-    iniciales: "S1",
+    cargo: "Suplencia 1",
+    email: "andrew.chamorro.trejos@est.una.ac.cr",
+    iniciales: "AC",
   },
   {
-    nombre: "Suplente 2",
+    nombre: "Celina Carranza Araya",
     rol: "suplencias",
-    cargo: "Suplencia",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025-2026",
-    email: "suplente2.teeuna@una.cr",
-    iniciales: "S2",
+    cargo: "Suplencia 2",
+    email: "celina.carranza.araya@est.una.ac.cr",
+    iniciales: "CC",
   },
   {
-    nombre: "Suplente 3",
+    nombre: "Melanie Muñoz Martínez",
     rol: "suplencias",
-    cargo: "Suplencia",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Sede Regional Huetar Norte",
-    periodo: "2025-2026",
-    email: "suplente3.teeuna@una.cr",
-    iniciales: "S3",
+    cargo: "Suplencia 3",
+    email: "melanie.munoz.martinez@est.una.ac.cr",
+    iniciales: "MM",
   },
   {
-    nombre: "Suplente 4",
+    nombre: "Vacante",
     rol: "suplencias",
-    cargo: "Suplencia",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025-2026",
-    email: "suplente4.teeuna@una.cr",
-    iniciales: "S4",
-  },
-  {
-    nombre: "Representante ante TEUNA",
-    rol: "representacion-teuna",
-    cargo: "Representación ante Tribunal Electoral Universitario",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025-2026",
-    email: "teuna.teeuna@una.cr",
-    iniciales: "RT",
-  },
-  {
-    nombre: "Representante ante TUA",
-    rol: "representacion-tua",
-    cargo: "Representación ante Tribunal Universitario de Apelaciones",
-    asociacion: "Asociación de Estudiantes [nombre]",
-    sede: "Campus Omar Dengo",
-    periodo: "2025-2026",
-    email: "tua.teeuna@una.cr",
-    iniciales: "RA",
+    cargo: "Suplencia 4",
+    iniciales: "—",
   },
 ];
 
@@ -364,7 +321,7 @@ export function TeeUnaPage() {
           {/* Grid de Integrantes */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {integrantesFiltrados.map((miembro) => (
-              <div key={miembro.email} className="bg-white rounded-lg border border-[#dddddd] overflow-hidden hover:shadow-md transition-shadow">
+              <div key={miembro.cargo} className="bg-white rounded-lg border border-[#dddddd] overflow-hidden hover:shadow-md transition-shadow">
                 {/* Foto tipo pasaporte - rectangular */}
                 <div className="bg-[#f5f5f5] flex items-center justify-center" style={{ height: '200px' }}>
                   <div className="w-24 h-28 bg-[#dddddd] rounded flex items-center justify-center">
@@ -372,24 +329,20 @@ export function TeeUnaPage() {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h4 style={{ fontSize: '15px', fontWeight: 600, color: '#1a1a1a' }}>{miembro.nombre}</h4>
+                  <h4 style={{ fontSize: '15px', fontWeight: 600, color: miembro.nombre === 'Vacante' ? '#999' : '#1a1a1a' }}>{miembro.nombre}</h4>
                   <p className="text-[#bb1f1f] mt-0.5" style={{ fontSize: '13px', fontWeight: 500 }}>{miembro.cargo}</p>
-                  <div className="mt-3 space-y-1.5">
-                    <div className="flex items-center gap-2 text-[#666666]" style={{ fontSize: '12px' }}>
-                      <MapPin size={13} className="shrink-0" />
-                      <span>{miembro.sede}</span>
+                  {miembro.email && (
+                    <div className="mt-3 pt-3 border-t border-[#eeeeee]">
+                      <a
+                        href={`mailto:${miembro.email}`}
+                        className="flex items-center gap-2 text-[#034991] hover:underline"
+                        style={{ fontSize: '12px', fontWeight: 500 }}
+                      >
+                        <Mail size={12} />
+                        {miembro.email}
+                      </a>
                     </div>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-[#eeeeee]">
-                    <a 
-                      href={`mailto:${miembro.email}`} 
-                      className="flex items-center gap-2 text-[#034991] hover:underline" 
-                      style={{ fontSize: '12px', fontWeight: 500 }}
-                    >
-                      <Mail size={12} />
-                      {miembro.email}
-                    </a>
-                  </div>
+                  )}
                   <span className="inline-block mt-3 bg-[#f5f5f5] text-[#666666] px-2 py-0.5 rounded" style={{ fontSize: '11px', fontWeight: 500 }}>
                     {roles.find(c => c.id === miembro.rol)?.nombre}
                   </span>

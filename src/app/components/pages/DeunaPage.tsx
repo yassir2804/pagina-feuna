@@ -100,26 +100,22 @@ const PASSPORT_BASE = "/images/fotos-pasaporte/deuna/";
 
 const integrantes = [
   {
-    nombre: "Marco Viquez Fallas",
+    nombre: "Daniela Chaves Matamoros",
     area: "presidencia",
     cargo: "Presidencia",
     asociacion: "Directorio Estudiantil FEUNA",
     sede: "Campus Omar Dengo",
     periodo: "2025-2027",
-    email: "marco.viquez.fallas@est.una.ac.cr",
+    email: "daniela.chaves.matamoros@est.una.ac.cr",
     iniciales: "PF",
-    foto: `${PASSPORT_BASE}Marco%20V%C3%ADquez.jpeg`,
+    foto: `${PASSPORT_BASE}Daniela.jpeg`,
   },
   {
-    nombre: "Daniela Chaves Matamoros",
+    nombre: "Vacante",
     area: "secretaria-general",
     cargo: "Secretaría General",
     asociacion: "Directorio Estudiantil FEUNA",
-    sede: "Campus Omar Dengo",
-    periodo: "2025-2027",
-    email: "daniela.chaves.matamoros@est.una.ac.cr",
-    iniciales: "SG",
-    foto: `${PASSPORT_BASE}Daniela.jpeg`,
+    iniciales: "—",
   },
   {
     nombre: "Mery Ann Fonseca Lopez",
@@ -144,15 +140,11 @@ const integrantes = [
     foto: `${PASSPORT_BASE}Yariel.png`,
   },
   {
-    nombre: "Cristofer Guerrero Lepiz",
+    nombre: "Vacante",
     area: "asuntos-universitarios",
     cargo: "Comisión de Asuntos Universitarios",
     asociacion: "Asociación de Estudiantes",
-    sede: "Campus Alajuela",
-    periodo: "2025-2027",
-    email: "cristofer.guerrero.lepiz@est.una.ac.cr",
-    iniciales: "AU",
-    foto: `${PASSPORT_BASE}Cristofer%20Guerrero.jpg`,
+    iniciales: "—",
   },
   {
     nombre: "Cristofer Castro Fallas",
@@ -265,15 +257,11 @@ const integrantes = [
     foto: `${PASSPORT_BASE}Omar.jpg`,
   },
   {
-    nombre: "Christopher Ulate Orozco",
+    nombre: "Vacante",
     area: "consejo-universitario",
     cargo: "Consejo Universitario (Propiedad 2°)",
     asociacion: "Representación institucional",
-    sede: "Campus Omar Dengo",
-    periodo: "2025-2027",
-    email: "christopher.ulate.orozco@est.una.ac.cr",
-    iniciales: "R3",
-    foto: `${PASSPORT_BASE}Cristofer%20Ulate.jpg`,
+    iniciales: "—",
   },
   {
     nombre: "Iris Lopez Cruz",
@@ -518,8 +506,8 @@ export function DeunaPage() {
 
           {/* Grid de Integrantes */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
-            {integrantesFiltrados.map((miembro) => (
-              <div key={miembro.email} className="bg-white rounded-lg border border-[#dddddd] overflow-hidden hover:shadow-md transition-shadow">
+            {integrantesFiltrados.map((miembro, idx) => (
+              <div key={idx} className="bg-white rounded-lg border border-[#dddddd] overflow-hidden hover:shadow-md transition-shadow">
                 {/* Foto tipo pasaporte - rectangular */}
                 <div className="bg-[#f5f5f5] flex items-center justify-center" style={{ height: '200px' }}>
                   {miembro.foto ? (
@@ -536,33 +524,37 @@ export function DeunaPage() {
                   )}
                 </div>
                 <div className="p-4">
-                  <h4 style={{ fontSize: '15px', fontWeight: 600, color: '#1a1a1a' }}>{miembro.nombre}</h4>
+                  <h4 style={{ fontSize: '15px', fontWeight: 600, color: miembro.nombre === 'Vacante' ? '#999' : '#1a1a1a' }}>{miembro.nombre}</h4>
                   <p className="text-[#bb1f1f] mt-0.5" style={{ fontSize: '13px', fontWeight: 500 }}>{miembro.cargo}</p>
-                  <div className="mt-3 space-y-1.5">
-                    <div className="flex items-center gap-2 text-[#666666]" style={{ fontSize: '12px' }}>
-                      <MapPin size={13} className="shrink-0" />
-                      <span>{miembro.sede}</span>
+                  {miembro.sede && (
+                    <div className="mt-3 space-y-1.5">
+                      <div className="flex items-center gap-2 text-[#666666]" style={{ fontSize: '12px' }}>
+                        <MapPin size={13} className="shrink-0" />
+                        <span>{miembro.sede}</span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-[#eeeeee]">
-                    {(() => {
-                      const emailParts = splitEmail(miembro.email);
-                      return (
-                    <a 
-                      href={`mailto:${miembro.email}`} 
-                      className="flex items-start gap-2 text-[#034991] hover:underline w-full rounded bg-[#f7f9fc] px-2 py-1 max-w-[190px] mx-auto" 
-                      style={{ fontSize: '11px', fontWeight: 500, lineHeight: 1.2 }}
-                      title={miembro.email}
-                    >
-                      <Mail size={12} className="shrink-0 mt-0.5" />
-                      <span className="flex flex-col min-w-0">
-                        <span className="break-all">{emailParts.user}</span>
-                        <span className="text-[#5a7390]">{emailParts.domain}</span>
-                      </span>
-                    </a>
-                      );
-                    })()}
-                  </div>
+                  )}
+                  {miembro.email && (
+                    <div className="mt-3 pt-3 border-t border-[#eeeeee]">
+                      {(() => {
+                        const emailParts = splitEmail(miembro.email);
+                        return (
+                          <a
+                            href={`mailto:${miembro.email}`}
+                            className="flex items-start gap-2 text-[#034991] hover:underline w-full rounded bg-[#f7f9fc] px-2 py-1 max-w-[190px] mx-auto"
+                            style={{ fontSize: '11px', fontWeight: 500, lineHeight: 1.2 }}
+                            title={miembro.email}
+                          >
+                            <Mail size={12} className="shrink-0 mt-0.5" />
+                            <span className="flex flex-col min-w-0">
+                              <span className="break-all">{emailParts.user}</span>
+                              <span className="text-[#5a7390]">{emailParts.domain}</span>
+                            </span>
+                          </a>
+                        );
+                      })()}
+                    </div>
+                  )}
                   <span className="inline-block mt-3 bg-[#f5f5f5] text-[#666666] px-2 py-0.5 rounded" style={{ fontSize: '11px', fontWeight: 500 }}>
                     {areas.find(c => c.id === miembro.area)?.nombre}
                   </span>

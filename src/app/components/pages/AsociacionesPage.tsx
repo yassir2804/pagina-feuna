@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { HeroInternal } from "../HeroInternal";
 import {
   Users, ChevronRight, Building2, Scale, ShieldCheck, HandCoins,
-  FileText, Landmark, Vote, Megaphone, Wallet, Gavel, MapPin, Search, AlertTriangle,
+  FileText, Landmark, Vote, Megaphone, Wallet, Gavel, MapPin, Search,
 } from "lucide-react";
 
 type Integrante = { puesto: string; nombre: string; correo?: string };
@@ -26,10 +26,7 @@ const asociacionesSedeCentral: Asociacion[] = [
       { puesto: "Fiscalía", nombre: "Oscar Daniel Jimenez Vanegas", correo: "oscar.jimenez.vanegas@est.una.ac.cr" },
     ],
   },
-  {
-    nombre: "Asociación de Estudiantes de Educación para el Trabajo", sigla: "ASEDETASO", sede: "CIDE", regional: false, acreditada: false,
-    integrantes: [{ puesto: "Presidencia", nombre: "Angely Fabiola Jiménez Vargas", correo: "angely.jimenez.vargas@est.una.ac.cr" }],
-  },
+  { nombre: "Asociación de Estudiantes de Educación para el Trabajo", sigla: "ASEDETASO", sede: "CIDE", regional: false, acreditada: false },
   { nombre: "Asociación de Estudiantes de Educación Básica", sigla: "ASEDEBA", sede: "CIDE", regional: false, acreditada: true },
   {
     nombre: "Asociación de Estudiantes de Artes Escénicas", sigla: "ASOESCENICAS", sede: "CIDEA", regional: false, acreditada: true,
@@ -44,10 +41,7 @@ const asociacionesSedeCentral: Asociacion[] = [
       { puesto: "Fiscalía", nombre: "Cristian Pérez Luna", correo: "cristian.perez.luna@est.una.ac.cr" },
     ],
   },
-  {
-    nombre: "Asociación de Estudiantes de Artes y Comunicación Visual", sigla: "ASOACV", sede: "CIDEA", regional: false, acreditada: false,
-    integrantes: [{ puesto: "Presidencia", nombre: "Valentina Rojas Luna", correo: "valentina.rojas.luna@est.una.ac.cr" }],
-  },
+  { nombre: "Asociación de Estudiantes de Artes y Comunicación Visual", sigla: "ASOACV", sede: "CIDEA", regional: false, acreditada: false },
   {
     nombre: "Asociación de Estudiantes de Música", sigla: "ASOEMU", sede: "CIDEA", regional: false, acreditada: true,
     integrantes: [
@@ -476,10 +470,7 @@ const asociacionesRegionales: Asociacion[] = [
       { puesto: "Fiscalía", nombre: "Thierry Galdamez Serrano", correo: "thierry.galdamez.serrano@est.una.ac.cr" },
     ],
   },
-  {
-    nombre: "Asociación de Estudiantes de Coto", sigla: "ASOCOTO", sede: "Regional, Coto", regional: true, acreditada: false,
-    integrantes: [{ puesto: "Presidencia", nombre: "Emily Sofia Mora Patiño", correo: "emily.mora.patino@est.una.ac.cr" }],
-  },
+  { nombre: "Asociación de Estudiantes de Coto", sigla: "ASOCOTO", sede: "Regional, Coto", regional: true, acreditada: false },
 ];
 
 const puestosCompletosSedeCentral = [
@@ -716,9 +707,8 @@ export function AsociacionesPage() {
                     <div style={{ fontSize: '13px', fontWeight: 600, color: asociacionSeleccionada === a.sigla ? '#bb1f1f' : '#1a1a1a' }}>
                       {a.nombre}
                     </div>
-                    <div className="flex items-center gap-1" style={{ fontSize: '12px', color: '#999' }}>
-                      <span>{a.sigla} · {a.sede}</span>
-                      {a.acreditada === false && <AlertTriangle size={12} className="text-[#c75b12] shrink-0" />}
+                    <div style={{ fontSize: '12px', color: '#999' }}>
+                      {a.sigla} · {a.sede}
                     </div>
                   </button>
                 ))}
@@ -739,46 +729,30 @@ export function AsociacionesPage() {
                   <span>{asociacionActiva.sede}</span>
                 </div>
 
-                {!asociacionActiva.integrantes || asociacionActiva.integrantes.length === 0 ? (
-                  <div className="bg-white rounded-lg p-5" style={{ fontSize: '14px', color: '#333333' }}>
-                    <div className="flex items-start gap-3">
-                      <AlertTriangle size={20} className="text-[#c75b12] shrink-0 mt-0.5" />
-                      <div>
-                        <p style={{ fontWeight: 600, color: '#c75b12' }}>
-                          {asociacionActiva.acreditada === false ? "Sin Junta Directiva vigente" : "Integrantes por confirmar"}
-                        </p>
-                        <p className="mt-1 text-[#666666]" style={{ fontSize: '13px', lineHeight: 1.6 }}>
-                          {asociacionActiva.acreditada === false
-                            ? "Según el registro de acreditación del TEEUNA, esta asociación no cuenta actualmente con una Junta Directiva acreditada. Consultá con el TEEUNA o el CAEUNA para conocer el proceso de reactivación."
-                            : "Aún no contamos con el listado de integrantes de esta Junta Directiva. Se actualizará en cuanto la asociación lo facilite."}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="bg-white rounded-lg p-5 space-y-2" style={{ fontSize: '14px', color: '#333333' }}>
+                <div className="bg-white rounded-lg p-5 divide-y divide-[#eeeeee]" style={{ fontSize: '14px', color: '#333333' }}>
                     {puestos.map((p) => {
-                      const integrante = asociacionActiva.integrantes!.find((i) => i.puesto === p.label);
+                      const integrante = asociacionActiva.integrantes?.find((i) => i.puesto === p.label);
                       return (
-                        <div key={p.label} className="flex flex-col sm:flex-row sm:items-baseline sm:gap-1.5">
-                          <strong className="shrink-0">{p.label}:</strong>
+                        <div key={p.label} className="py-2.5 first:pt-0 last:pb-0">
+                          <div style={{ fontSize: '12px', fontWeight: 600, color: '#666666', textTransform: 'uppercase', letterSpacing: '0.3px' }}>
+                            {p.label}
+                          </div>
                           {integrante ? (
-                            <span>
-                              {integrante.nombre}
+                            <div className="mt-0.5">
+                              <div style={{ color: '#1a1a1a' }}>{integrante.nombre}</div>
                               {integrante.correo && (
-                                <a href={`mailto:${integrante.correo}`} className="ml-1.5 text-[#034991] hover:underline" style={{ fontSize: '13px' }}>
-                                  ({integrante.correo})
+                                <a href={`mailto:${integrante.correo}`} className="text-[#034991] hover:underline break-all" style={{ fontSize: '13px' }}>
+                                  {integrante.correo}
                                 </a>
                               )}
-                            </span>
+                            </div>
                           ) : (
-                            <span className="text-[#999]">Vacante</span>
+                            <div className="mt-0.5 text-[#999]">Vacante</div>
                           )}
                         </div>
                       );
                     })}
-                  </div>
-                )}
+                </div>
               </div>
             )}
           </div>
