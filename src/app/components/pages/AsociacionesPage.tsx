@@ -1,9 +1,61 @@
+import { useState } from "react";
 import { Link } from "react-router";
 import { HeroInternal } from "../HeroInternal";
 import {
   Users, ChevronRight, Building2, Scale, ShieldCheck, HandCoins,
-  FileText, Landmark, Vote, Megaphone, Wallet, Gavel, MapPin,
+  FileText, Landmark, Vote, Megaphone, Wallet, Gavel, MapPin, Mail,
 } from "lucide-react";
+
+const integrantesPlaceholder = {
+  presidencia: "[Nombre pendiente]",
+  vicepresidencia: "[Nombre pendiente]",
+  secretaria: "[Nombre pendiente]",
+  tesoreria: "[Nombre pendiente]",
+  fiscalia: "[Nombre pendiente]",
+};
+
+type Asociacion = { nombre: string; sigla: string; sede: string };
+
+const asociacionesSedeCentral: Asociacion[] = [
+  { nombre: "Asociación de Estudiantes de Economía", sigla: "AEECO", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Planificación y Promoción Social", sigla: "ASOPPS", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Administración", sigla: "ASOEDA", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Relaciones Internacionales", sigla: "ASORRII", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Comercio y Negocios Internacionales", sigla: "ASONIC", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Psicología", sigla: "ASEP", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Historia y Estudios Sociales", sigla: "ASOEESSH", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Sociología", sigla: "AESOCIO", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Inteligencia y Estrategia Global", sigla: "ASOIEG", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Administración de Oficina y Educación Comercial", sigla: "ASOAOEC", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Educación Rural", sigla: "ASEDER", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Educación Básica", sigla: "ASEDEBA", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Educación para el Trabajo", sigla: "ASEDETASO", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Artes Escénicas", sigla: "ASOESCENICAS", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Danza", sigla: "ASODANZA", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Artes y Comunicación Visual", sigla: "ASOACV", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Música", sigla: "ASOEMU", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Ciencias del Movimiento Humano", sigla: "ASOCIEMHCAVI", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Veterinaria", sigla: "ASOVETE", sede: "Campus Benjamín Núñez" },
+  { nombre: "Asociación de Estudiantes de Ciencias Ambientales", sigla: "AEDECA", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Geografía", sigla: "AEGECA", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Ciencias Agrarias", sigla: "ASOECAS", sede: "Campus Benjamín Núñez" },
+  { nombre: "Asociación de Estudiantes de Bibliotecología", sigla: "ASOEBDI", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Teología", sigla: "ASOTEO", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Español", sigla: "ASOESPA", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Filosofía", sigla: "ASOFILO", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Género", sigla: "ASOGEDE", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Literatura y Lenguaje", sigla: "ASELYL", sede: "Campus Omar Dengo" },
+  { nombre: "Asociación de Estudiantes de Residencias", sigla: "ASORESIS", sede: "Campus Omar Dengo" },
+];
+
+const asociacionesRegionales: Asociacion[] = [
+  { nombre: "Asociación de Estudiantes de Liberia", sigla: "ASEUNAL", sede: "Sede Regional Chorotega, Liberia" },
+  { nombre: "Asociación de Estudiantes de Pérez Zeledón", sigla: "ASEUNAPZ", sede: "Sede Regional Brunca, Pérez Zeledón" },
+  { nombre: "Asociación de Estudiantes de Nicoya", sigla: "ASEUNAN", sede: "Sede Regional Chorotega, Nicoya" },
+  { nombre: "Asociación de Estudiantes de Intersede", sigla: "ASEINTER", sede: "Sede Interuniversitaria de Alajuela" },
+  { nombre: "Asociación de Estudiantes de Sarapiquí", sigla: "ASOECAS-SAR", sede: "Sede Interuniversitaria de Sarapiquí" },
+  { nombre: "Asociación de Estudiantes de Coto", sigla: "ASOCOTO", sede: "Sede Regional Brunca, Coto" },
+];
 
 const finesAsociaciones = [
   { icono: ShieldCheck, titulo: "Autonomía universitaria", desc: "Promover y defender la autonomía universitaria y la independencia estudiantil dentro de los espacios universitarios." },
@@ -67,6 +119,11 @@ const deberes = [
 ];
 
 export function AsociacionesPage() {
+  const [asociacionSeleccionada, setAsociacionSeleccionada] = useState(asociacionesSedeCentral[0].sigla);
+
+  const todasLasAsociaciones = [...asociacionesSedeCentral, ...asociacionesRegionales];
+  const asociacionActiva = todasLasAsociaciones.find((a) => a.sigla === asociacionSeleccionada);
+
   return (
     <div>
       <HeroInternal
@@ -150,6 +207,70 @@ export function AsociacionesPage() {
           <p className="text-center mt-8" style={{ fontSize: '13px', color: '#999' }}>
             El período de las Juntas Directivas es de un año y medio, según el Estatuto Orgánico de la FEUNA.
           </p>
+        </div>
+      </section>
+
+      {/* Directorio de asociaciones */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[900px] mx-auto px-5">
+          <div className="text-center mb-10">
+            <h2 className="mb-4" style={{ fontSize: '32px', fontWeight: 700, color: '#1a1a1a' }}>Directorio de asociaciones</h2>
+            <p className="max-w-[700px] mx-auto" style={{ fontSize: '15px', lineHeight: 1.7, color: '#666666' }}>
+              Elegí una asociación estudiantil para ver su Junta Directiva.
+              Los nombres y correos se irán completando a medida que cada asociación los facilite.
+            </p>
+          </div>
+
+          <div className="mb-8">
+            <label htmlFor="asociacion-select" className="block mb-2" style={{ fontSize: '13px', fontWeight: 600, color: '#666666', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Seleccioná una asociación
+            </label>
+            <select
+              id="asociacion-select"
+              value={asociacionSeleccionada}
+              onChange={(e) => setAsociacionSeleccionada(e.target.value)}
+              className="w-full border border-[#dddddd] rounded px-4 py-3 bg-white"
+              style={{ fontSize: '15px', color: '#1a1a1a' }}
+            >
+              <optgroup label="Sede central">
+                {asociacionesSedeCentral.map((a) => (
+                  <option key={a.sigla} value={a.sigla}>{a.nombre} ({a.sigla})</option>
+                ))}
+              </optgroup>
+              <optgroup label="Campus y sedes regionales">
+                {asociacionesRegionales.map((a) => (
+                  <option key={a.sigla} value={a.sigla}>{a.nombre} ({a.sigla})</option>
+                ))}
+              </optgroup>
+            </select>
+          </div>
+
+          {asociacionActiva && (
+            <div className="bg-[#f5f5f5] rounded-lg border border-[#dddddd] p-6">
+              <div className="flex items-start justify-between gap-2 mb-2">
+                <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#1a1a1a', lineHeight: 1.3 }}>{asociacionActiva.nombre}</h3>
+                <span className="shrink-0 bg-[#bb1f1f]/10 text-[#bb1f1f] px-2 py-1 rounded" style={{ fontSize: '12px', fontWeight: 700 }}>
+                  {asociacionActiva.sigla}
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 text-[#666666] mb-5" style={{ fontSize: '13px' }}>
+                <MapPin size={13} className="shrink-0" />
+                <span>{asociacionActiva.sede}</span>
+              </div>
+              <div className="bg-white rounded-lg p-5 space-y-2.5" style={{ fontSize: '14px', color: '#333333' }}>
+                <div><strong>Presidencia:</strong> {integrantesPlaceholder.presidencia}</div>
+                <div><strong>Vicepresidencia:</strong> {integrantesPlaceholder.vicepresidencia}</div>
+                <div><strong>Secretaría:</strong> {integrantesPlaceholder.secretaria}</div>
+                <div><strong>Tesorería:</strong> {integrantesPlaceholder.tesoreria}</div>
+                <div><strong>Fiscalía:</strong> {integrantesPlaceholder.fiscalia}</div>
+                <div><strong>Representaciones ante el CAEUNA:</strong> {integrantesPlaceholder.presidencia}, {integrantesPlaceholder.vicepresidencia}</div>
+                <div className="flex items-center gap-1.5 pt-2 mt-2 border-t border-[#eeeeee] text-[#999]">
+                  <Mail size={13} className="shrink-0" />
+                  <span>[correo pendiente]</span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
