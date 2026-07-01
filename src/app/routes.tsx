@@ -26,11 +26,11 @@ import { MovimientoIndigenPage } from "./components/pages/MovimientoIndigenPage"
 import { EventosPage } from "./components/pages/EventosPage";
 import { TramitesPage } from "./components/pages/TramitesPage";
 import { EncuestasPage } from "./components/pages/EncuestasPage";
+import { AsociacionesPage } from "./components/pages/AsociacionesPage";
 import { GenericPage } from "./components/pages/GenericPage";
 import { Navigate } from "react-router";
 
 const genericPages: { path: string; title: string; subtitle?: string; breadcrumbs?: { label: string; href?: string }[] }[] = [
-  { path: "asociaciones", title: "Asociaciones Estudiantiles", subtitle: "Directorio de asociaciones estudiantiles de la UNA.", breadcrumbs: [{ label: "Inicio", href: "/" }, { label: "Órganos" }, { label: "Asociaciones" }] },
   { path: "representacion-cu", title: "Representación en órganos UNA", subtitle: "Representantes estudiantiles en Consejo Universitario y CONSACA.", breadcrumbs: [{ label: "Inicio", href: "/" }, { label: "Órganos" }, { label: "Representación UNA" }] },
   { path: "plan-trabajo", title: "Plan de trabajo", subtitle: "Ejes y metas del gobierno estudiantil actual." },
   { path: "epeticiones", title: "E-Peticiones", subtitle: "Enviá una petición formal al gobierno estudiantil." },
@@ -93,6 +93,7 @@ export const router = createBrowserRouter([
       { path: "eventos", Component: EventosPage },
       { path: "tramites", Component: TramitesPage },
       { path: "encuestas", Component: EncuestasPage },
+      { path: "asociaciones", Component: AsociacionesPage },
       ...genericPages.map((p) => ({
         path: p.path,
         element: <GenericPage title={p.title} subtitle={p.subtitle} breadcrumbs={p.breadcrumbs} />,
